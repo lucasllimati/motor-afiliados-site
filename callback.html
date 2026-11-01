@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Não repassa esta URL (com o code) para nenhum outro site. -->
+  <meta name="referrer" content="no-referrer">
+  <title>Autorização do TikTok</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    code { display: block; word-break: break-all; background: #f2f2f2; padding: 1rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Autorização do TikTok</h1>
+  <div id="saida">Lendo parâmetros…</div>
+  <script>
+    // Página estática, sem scripts externos. Só mostra o "code" para ser colado no script
+    // scripts/tiktok_autorizar.py. O code expira em poucos minutos e só pode ser usado uma vez.
+    const p = new URLSearchParams(location.search);
+    const saida = document.getElementById("saida");
+    const erro = p.get("error");
+    const code = p.get("code");
+    saida.textContent = "";
+    if (erro) {
+      const msg = document.createElement("p");
+      msg.textContent = "Erro: " + erro + " — " + (p.get("error_description") || "");
+      saida.append(msg);
+    } else if (code) {
+      const msg = document.createElement("p");
+      msg.textContent = "Copie o código abaixo e cole no script de autorização:";
+      const el = document.createElement("code");
+      el.textContent = code;
+      const st = document.createElement("p");
+      st.textContent = "state: " + (p.get("state") || "(ausente)");
+      saida.append(msg, el, st);
+    } else {
+      saida.textContent = "Nenhum código na URL.";
+    }
+    // Tira o code da barra de endereço e do histórico.
+    history.replaceState(null, "", location.pathname);
+  </script>
+</body>
+</html>
