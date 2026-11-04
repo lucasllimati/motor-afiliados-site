@@ -1,6 +1,56 @@
 {
- "atualizado_em": "2026-11-03T18:38:56+00:00",
+ "atualizado_em": "2026-11-04T18:51:40+00:00",
  "itens": [
+  {
+   "data": "2026-11-04",
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-81z1k-mhqkzkrt4w03ba",
+   "link": "https://s.shopee.com.br/gRO6rbjdk",
+   "nome": "Ventilador Luminária Led 6 Pás Lâmpada Soquete Bocal E27 Teto 3 Cores Luz Branco Amarelo Bivolt",
+   "nota": 4.8,
+   "numero": 16,
+   "preco": 42.99,
+   "vendas": 7645
+  },
+  {
+   "data": "2026-11-04",
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820le-mtrha87hqgoydd",
+   "link": "https://s.shopee.com.br/30pIt4iU3P",
+   "nome": "Jogo de Facas de Cozinha 8 Peças Genebra Corte Navalha Antiaderente Premium",
+   "nota": 4.9,
+   "numero": 15,
+   "preco": 25.99,
+   "vendas": 6969
+  },
+  {
+   "data": "2026-11-04",
+   "imagem": "https://cf.shopee.com.br/file/sg-11134201-824hw-me1mqqajx1c73f",
+   "link": "https://s.shopee.com.br/7VHiFIFMij",
+   "nome": "Chinelo Bandeirinha Original Sandalia De Dedo Unissex Verão. Presente para o Dia dos Pais",
+   "nota": 4.7,
+   "numero": 14,
+   "preco": 19.9,
+   "vendas": 11770
+  },
+  {
+   "data": "2026-11-04",
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-81z1k-mht87kjg5b7qd2",
+   "link": "https://s.shopee.com.br/2gCSUL8ZSR",
+   "nome": "Revitalizador de farol remove amarelado e aspecto fosco",
+   "nota": 4.7,
+   "numero": 13,
+   "preco": 16.0,
+   "vendas": 10877
+  },
+  {
+   "data": "2026-11-04",
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820md-mq55654q4mbm4b",
+   "link": "https://s.shopee.com.br/8fTfdJ9kwW",
+   "nome": "Moedor de especiarias elétrico 110V/220V, com 4 lâminas de aço inoxidável, para uso doméstico.",
+   "nota": 4.8,
+   "numero": 12,
+   "preco": 36.08,
+   "vendas": 15297
+  },
   {
    "data": "2026-11-03",
    "imagem": "https://cf.shopee.com.br/file/sg-11134201-8257y-mr95fdmnjhtu54",
@@ -8,8 +58,8 @@
    "nome": "Barbeador Elétrico 4 Em 1 Para Mulheres Remoção De Pelos Corporais feminino/aparador de pelos do nariz e sobrancelhas",
    "nota": 4.7,
    "numero": 11,
-   "preco": 30.99,
-   "vendas": 10772
+   "preco": 29.98,
+   "vendas": 10817
   },
   {
    "data": "2026-11-03",
@@ -19,7 +69,7 @@
    "nota": 4.8,
    "numero": 10,
    "preco": 20.47,
-   "vendas": 9603
+   "vendas": 9462
   },
   {
    "data": "2026-11-03",
@@ -29,7 +79,7 @@
    "nota": 4.8,
    "numero": 9,
    "preco": 39.56,
-   "vendas": 9907
+   "vendas": 10288
   },
   {
    "data": "2026-11-03",
@@ -39,7 +89,7 @@
    "nota": 4.8,
    "numero": 8,
    "preco": 40.64,
-   "vendas": 9395
+   "vendas": 9430
   },
   {
    "data": "2026-11-03",
@@ -49,7 +99,7 @@
    "nota": 4.8,
    "numero": 7,
    "preco": 19.98,
-   "vendas": 10314
+   "vendas": 10316
   },
   {
    "data": "2026-11-02",
@@ -69,7 +119,7 @@
    "nota": 4.7,
    "numero": 5,
    "preco": 28.85,
-   "vendas": 13337
+   "vendas": 13122
   },
   {
    "data": "2026-11-02",
@@ -89,7 +139,7 @@
    "nota": 4.8,
    "numero": 3,
    "preco": 28.99,
-   "vendas": 13495
+   "vendas": 13618
   },
   {
    "data": "2026-11-02",
@@ -99,7 +149,7 @@
    "nota": 4.8,
    "numero": 2,
    "preco": 18.69,
-   "vendas": 15279
+   "vendas": 15165
   },
   {
    "data": "2026-11-02",
@@ -109,7 +159,7 @@
    "nota": 4.9,
    "numero": 1,
    "preco": 16.9,
-   "vendas": 18296
+   "vendas": 16839
   }
  ]
 }
