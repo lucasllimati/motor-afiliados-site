@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' https://cf.shopee.com.br https://down-br.img.susercontent.com; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Achadinhos Picks: ache o produto do vídeo pelo número</title>
+  <title>Achadinhos Picks: viu no vídeo? Ache aqui.</title>
   <meta name="description" content="Viu um achado nos nossos vídeos? Digite o número e compre direto na Shopee.">
   <meta property="og:title" content="Achadinhos Picks">
   <meta property="og:description" content="Viu um achado nos nossos vídeos? Digite o número e compre direto na Shopee.">
@@ -13,8 +13,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cf.shopee.com.br">
   <link rel="preload" href="fontes/anton.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=2">
-  <script src="achados.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="achados.js?v=3" defer></script>
 </head>
 <body class="vitrine">
   <a class="pular" href="#achados">Pular para os achados</a>
@@ -25,14 +25,14 @@
         <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><circle cx="21" cy="21" r="10" fill="none" stroke="#d93a00" stroke-width="4"/><path d="M28.5 28.5 37 37" stroke="#d93a00" stroke-width="5" stroke-linecap="round"/></svg>
         Achadinhos Picks
       </a>
-      <h1>Achado Nº</h1>
-      <label class="dica" for="busca">Digite o número que apareceu no vídeo ou o nome do produto.</label>
+      <h1><span>Viu no vídeo?</span> <span>Ache aqui.</span></h1>
+      <label class="so-leitor" for="busca">Número do achado ou nome do produto</label>
     </div>
   </header>
 
   <form class="busca" role="search" action="#achados">
     <div class="etiqueta-busca">
-      <input id="busca" type="search" enterkeyhint="search" placeholder="12 ou chaleira" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input id="busca" type="search" enterkeyhint="search" placeholder="Nº do achado ou produto" autocomplete="off" autocapitalize="off" spellcheck="false">
       <button id="limpar" class="limpar" type="button" aria-label="Limpar a busca" hidden>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
       </button>
@@ -74,8 +74,10 @@
 
     <section class="transparencia" aria-labelledby="t-transparencia">
       <h2 id="t-transparencia">Como funciona</h2>
-      <p>Comprando pelos nossos links você ajuda o canal e não paga nada a mais: quem nos paga a comissão é a Shopee.</p>
-      <p>O preço mostrado é o do dia do vídeo e pode mudar. Confira na Shopee antes de pagar. A compra, a entrega e a troca são com a loja.</p>
+      <div class="colunas">
+        <p><strong>Você não paga nada a mais.</strong> Nossos links são de afiliado: a Shopee nos paga uma comissão e você ajuda o canal.</p>
+        <p><strong>Confira o preço antes de pagar.</strong> O valor aqui é o do dia do vídeo. A compra, a entrega e a troca são com a loja.</p>
+      </div>
     </section>
   </main>
 

@@ -28,6 +28,12 @@
     return mil + " mil vendidos";
   }
 
+  // "2026-11-04" vira "4/11": o preço é o do dia do vídeo.
+  function dataCurta(data) {
+    var partes = /^\d{4}-(\d{2})-(\d{2})/.exec(data || "");
+    return partes ? Number(partes[2]) + "/" + Number(partes[1]) : "";
+  }
+
   function semAcento(texto) {
     return String(texto).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   }
@@ -71,16 +77,17 @@
       dados.append(elemento("span", "estrelas", "★ " + String(item.nota).replace(".", ",")));
     }
     if (item.vendas) dados.append(elemento("span", "", vendidos(item.vendas)));
+    if (dataCurta(item.data)) dados.append(elemento("span", "", "preço de " + dataCurta(item.data)));
 
     link.append(
       moldura,
       elemento("h3", "", item.nome),
       elemento("p", "preco", preco(item.preco)),
       dados,
-      elemento("span", "ir", "Ver na Shopee")
+      elemento("span", "ir", "Ver oferta")
     );
     li.append(link);
-    return { item: item, li: li, foto: foto, chave: semAcento(item.nome) };
+    return { item: item, li: li, foto: foto, ir: link.lastChild, chave: semAcento(item.nome) };
   }
 
   function definirAcao(texto, funcao) {
@@ -99,6 +106,7 @@
     clearTimeout(timerFoto);
     cartoes.forEach(function (c) {
       c.li.classList.toggle("destaque", c === cartao);
+      c.ir.textContent = c === cartao ? "Ver oferta na Shopee" : "Ver oferta";
     });
     if (cartao) {
       timerFoto = setTimeout(function () {
@@ -140,13 +148,15 @@
       estado.textContent = "Ainda não existe o achado nº " + Number(termo) + ". O mais recente é o nº " + maiorNumero + ".";
       definirAcao("Ver todos", verTodos);
     } else if (!visiveis) {
-      estado.textContent = "Nenhum achado com “" + texto + "”. Tente o número que aparece no vídeo.";
+      estado.textContent = "Nenhum achado com “" + texto + "”. Tente o número mostrado no vídeo.";
       definirAcao("Ver todos", verTodos);
     } else if (termo) {
       estado.textContent = visiveis + (visiveis === 1 ? " achado encontrado" : " achados encontrados");
       definirAcao("Ver todos", verTodos);
     } else {
-      estado.textContent = cartoes.length + (cartoes.length === 1 ? " achado" : " achados, do mais novo para o mais antigo");
+      estado.textContent = cartoes.length === 1
+        ? "1 achado com nota alta e muitas vendas"
+        : cartoes.length + " achados com nota alta e muitas vendas";
     }
   }
 
