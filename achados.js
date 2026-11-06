@@ -28,10 +28,12 @@
     return mil + " mil vendidos";
   }
 
-  // "2026-11-04" vira "4/11": o preço é o do dia do vídeo.
+  // "2026-11-04" vira "4 de nov.": com o mês escrito, fica claro que é uma data.
+  var MESES = ["jan.", "fev.", "mar.", "abr.", "maio", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
   function dataCurta(data) {
     var partes = /^\d{4}-(\d{2})-(\d{2})/.exec(data || "");
-    return partes ? Number(partes[2]) + "/" + Number(partes[1]) : "";
+    var mes = partes && MESES[Number(partes[1]) - 1];
+    return mes ? Number(partes[2]) + " de " + mes : "";
   }
 
   function semAcento(texto) {
@@ -77,7 +79,7 @@
       dados.append(elemento("span", "estrelas", "★ " + String(item.nota).replace(".", ",")));
     }
     if (item.vendas) dados.append(elemento("span", "", vendidos(item.vendas)));
-    if (dataCurta(item.data)) dados.append(elemento("span", "", "preço de " + dataCurta(item.data)));
+    if (dataCurta(item.data)) dados.append(elemento("span", "quando", "Preço visto em " + dataCurta(item.data)));
 
     link.append(
       moldura,

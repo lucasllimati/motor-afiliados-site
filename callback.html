@@ -4,28 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Só o script deste site roda aqui; nada externo. O code nunca sai desta página. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex">
   <title>Autorização do TikTok | Achadinhos Picks</title>
-  <meta name="theme-color" content="#f2511b">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#d93a00">
+  <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=4">
   <script src="callback.js" defer></script>
 </head>
 <body>
-  <main class="retorno">
-    <div class="painel">
-      <a class="marca" href="./">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#f2511b"/><circle cx="21" cy="21" r="10" fill="none" stroke="#fff" stroke-width="4"/><path d="M28.5 28.5 37 37" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M35 6c1 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-7 1 1 2 2 3-3z" fill="#ffd43b"/></svg>
+  <header class="barra">
+    <div class="miolo">
+      <a class="marca" href="./" aria-label="Achadinhos Picks, página inicial">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><circle cx="21" cy="21" r="10" fill="none" stroke="#d93a00" stroke-width="4"/><path d="M28.5 28.5 37 37" stroke="#d93a00" stroke-width="5" stroke-linecap="round"/></svg>
         Achadinhos Picks
       </a>
+    </div>
+  </header>
+  <main class="retorno">
+    <div class="painel">
       <h1 id="titulo">Autorização do TikTok</h1>
       <p id="status" class="status" role="status">Lendo a resposta do TikTok.</p>
       <code id="codigo" class="codigo" hidden></code>
       <button id="copiar" class="botao acao" type="button" hidden>Copiar código</button>
-      <p class="nota">O código vale por poucos minutos e só pode ser usado uma vez. Não envie para
-         ninguém: cole apenas no script de autorização do seu computador.</p>
+      <p class="nota">O código vale por poucos minutos e só pode ser usado uma vez. Não envie para ninguém: cole apenas no script de autorização do seu computador.</p>
     </div>
   </main>
 </body>
