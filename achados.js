@@ -11,6 +11,10 @@
   var limpar = document.getElementById("limpar");
   var acao = document.getElementById("acao");
   var secao = document.getElementById("achados");
+  var filtros = document.getElementById("filtros");
+  var limitePreco = 0;
+  var DIAS_DE_NOVO = 1; // hoje e ontem
+  var dataMaisRecente = "";
   var ESPERA_FOTO_MS = 450; // quem digita "12" passa pelo "1": só baixa a foto grande ao parar
   var cartoes = [];
   var maiorNumero = 0;
@@ -34,6 +38,27 @@
     var partes = /^\d{4}-(\d{2})-(\d{2})/.exec(data || "");
     var mes = partes && MESES[Number(partes[1]) - 1];
     return mes ? Number(partes[2]) + " de " + mes : "";
+  }
+
+  // Só o lote mais recente, e só enquanto for de hoje ou ontem: selo em tudo não diz nada.
+  function ehNovo(data) {
+    var partes = /^(\d{4})-(\d{2})-(\d{2})/.exec(data || "");
+    if (!partes || data !== dataMaisRecente) return false;
+    var dia = new Date(Number(partes[1]), Number(partes[2]) - 1, Number(partes[3]));
+    return (Date.now() - dia.getTime()) / 86400000 < DIAS_DE_NOVO + 1;
+  }
+
+  // Abre o compartilhamento do celular; sem ele, copia o link do achado.
+  function compartilhar(item, botao) {
+    var url = location.origin + location.pathname + "#" + item.numero;
+    var titulo = "Achado nº " + item.numero + ": " + item.nome;
+    if (navigator.share) {
+      navigator.share({ title: titulo, url: url }).catch(function () {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () {
+        botao.textContent = "Link copiado";
+      });
+    }
   }
 
   function semAcento(texto) {
@@ -73,6 +98,7 @@
 
     var moldura = elemento("div", "foto");
     moldura.append(foto, elemento("span", "selo", "Nº " + item.numero));
+    if (ehNovo(item.data)) moldura.append(elemento("span", "novo", "Novo"));
 
     var dados = elemento("p", "dados");
     if (item.nota) {
@@ -89,6 +115,14 @@
       elemento("span", "ir", "Ver oferta")
     );
     li.append(link);
+    if (navigator.share || navigator.clipboard) {
+      var botao = elemento("button", "compartilhar", "Compartilhar");
+      botao.type = "button";
+      botao.addEventListener("click", function () {
+        compartilhar(item, botao);
+      });
+      li.append(botao);
+    }
     return { item: item, li: li, foto: foto, ir: link.lastChild, chave: semAcento(item.nome) };
   }
 
@@ -100,8 +134,15 @@
 
   function verTodos() {
     busca.value = "";
+    definirLimite(0);
     mostrar();
-    busca.focus();
+  }
+
+  function definirLimite(valor) {
+    limitePreco = valor;
+    filtros.querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(Number(b.dataset.ate) === valor));
+    });
   }
 
   function destacar(cartao) {
@@ -112,7 +153,12 @@
     });
     if (cartao) {
       timerFoto = setTimeout(function () {
-        cartao.foto.src = cartao.item.imagem;
+        // Troca só depois de baixar: a miniatura fica na tela até lá.
+        var cheia = new Image();
+        cheia.onload = function () {
+          cartao.foto.src = cartao.item.imagem;
+        };
+        cheia.src = cartao.item.imagem;
       }, ESPERA_FOTO_MS);
     }
   }
@@ -130,6 +176,7 @@
 
     cartoes.forEach(function (c) {
       var ver = !termo || (numerico ? c.item.numero === Number(termo) : c.chave.indexOf(termo) !== -1);
+      if (!numerico && limitePreco && !(c.item.preco <= limitePreco)) ver = false;
       c.li.hidden = !ver;
       if (ver) {
         visiveis += 1;
@@ -140,6 +187,7 @@
     limpar.hidden = !texto;
     atualizarEndereco(exato ? exato.item.numero : null);
     definirAcao();
+    filtros.hidden = !cartoes.length || numerico;
 
     if (!cartoes.length) {
       estado.textContent = "Os primeiros achados aparecem aqui em breve.";
@@ -150,10 +198,13 @@
       estado.textContent = "Ainda não existe o achado nº " + Number(termo) + ". O mais recente é o nº " + maiorNumero + ".";
       definirAcao("Ver todos", verTodos);
     } else if (!visiveis) {
-      estado.textContent = "Nenhum achado com “" + texto + "”. Tente o número mostrado no vídeo.";
+      estado.textContent = termo
+        ? "Nenhum achado com “" + texto + "”" + (limitePreco ? " até R$ " + limitePreco : "") + ". Tente o número mostrado no vídeo."
+        : "Nenhum achado até R$ " + limitePreco + " por enquanto.";
       definirAcao("Ver todos", verTodos);
-    } else if (termo) {
-      estado.textContent = visiveis + (visiveis === 1 ? " achado encontrado" : " achados encontrados");
+    } else if (termo || limitePreco) {
+      estado.textContent = visiveis + (visiveis === 1 ? " achado" : " achados") +
+        (limitePreco ? " até R$ " + limitePreco : visiveis === 1 ? " encontrado" : " encontrados");
       definirAcao("Ver todos", verTodos);
     } else {
       estado.textContent = cartoes.length === 1
@@ -185,6 +236,7 @@
       })
       .then(function (dados) {
         var itens = Array.isArray(dados.itens) ? dados.itens : [];
+        dataMaisRecente = itens.reduce(function (m, i) { return i.data > m ? i.data : m; }, "");
         cartoes = itens
           .filter(function (item) {
             return /^https:\/\//.test(item.link || "") && /^https:\/\//.test(item.imagem || "");
@@ -208,7 +260,17 @@
     aoDigitar();
     busca.blur(); // no celular, fecha o teclado e mostra o resultado
   });
-  limpar.addEventListener("click", verTodos);
+  limpar.addEventListener("click", function () {
+    busca.value = "";
+    mostrar();
+    busca.focus();
+  });
+  filtros.addEventListener("click", function (evento) {
+    var botao = evento.target.closest("button");
+    if (!botao) return;
+    definirLimite(Number(botao.dataset.ate));
+    aoDigitar();
+  });
   acao.addEventListener("click", function () {
     if (aoAgir) aoAgir();
   });

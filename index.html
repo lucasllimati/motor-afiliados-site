@@ -7,14 +7,20 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Achadinhos Picks: viu no vídeo? Ache aqui.</title>
   <meta name="description" content="Viu um achado nos nossos vídeos? Digite o número e compre direto na Shopee.">
-  <meta property="og:title" content="Achadinhos Picks">
-  <meta property="og:description" content="Viu um achado nos nossos vídeos? Digite o número e compre direto na Shopee.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lucasllimati.github.io/motor-afiliados-site/">
+  <meta property="og:title" content="Achadinhos Picks: viu no vídeo? Ache aqui.">
+  <meta property="og:description" content="Digite o número do achado e veja a oferta na Shopee.">
+  <meta property="og:image" content="https://lucasllimati.github.io/motor-afiliados-site/previa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#d93a00">
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://cf.shopee.com.br">
   <link rel="preload" href="fontes/anton.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="achados.js?v=4" defer></script>
+  <link rel="stylesheet" href="style.css?v=5">
+  <script src="achados.js?v=5" defer></script>
 </head>
 <body class="vitrine">
   <a class="pular" href="#achados">Pular para os achados</a>
@@ -44,6 +50,11 @@
       <div class="estado-linha">
         <p id="estado" role="status">Carregando os achados…</p>
         <button id="acao" class="botao-leve" type="button" hidden></button>
+      </div>
+      <div id="filtros" class="filtros" role="group" aria-label="Filtrar por preço" hidden>
+        <button type="button" data-ate="0" aria-pressed="true">Todos</button>
+        <button type="button" data-ate="20" aria-pressed="false">Até R$ 20</button>
+        <button type="button" data-ate="30" aria-pressed="false">Até R$ 30</button>
       </div>
       <ol id="lista" class="grade-achados">
         <li class="achado molde" aria-hidden="true"></li>
