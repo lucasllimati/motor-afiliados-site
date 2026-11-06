@@ -21,6 +21,10 @@
   var aoAgir = null;
   var timerFoto = null;
 
+  function temPreco(item) {
+    return item.preco !== null && item.preco !== undefined;
+  }
+
   function preco(valor) {
     if (valor === null || valor === undefined) return "";
     return "R$ " + Number(valor).toFixed(2).replace(".", ",");
@@ -77,6 +81,12 @@
     return el;
   }
 
+  // Sem o campo (arquivo antigo), o achado é da Shopee.
+  var LOJAS = { shopee: "Shopee", amazon: "Amazon" };
+  function loja(item) {
+    return LOJAS[item.plataforma] || "Shopee";
+  }
+
   function criarCartao(item, posicao) {
     var li = elemento("li", "achado");
     li.id = "achado-" + item.numero;
@@ -105,12 +115,17 @@
       dados.append(elemento("span", "estrelas", "★ " + String(item.nota).replace(".", ",")));
     }
     if (item.vendas) dados.append(elemento("span", "", vendidos(item.vendas)));
-    if (dataCurta(item.data)) dados.append(elemento("span", "quando", "Preço visto em " + dataCurta(item.data)));
+    // Sem preço (ex.: Amazon, por regra do programa), não há data de preço a mostrar.
+    if (temPreco(item) && dataCurta(item.data)) {
+      dados.append(elemento("span", "quando", "Preço visto em " + dataCurta(item.data)));
+    }
 
     link.append(
       moldura,
       elemento("h3", "", item.nome),
-      elemento("p", "preco", preco(item.preco)),
+      temPreco(item)
+        ? elemento("p", "preco", preco(item.preco))
+        : elemento("p", "sem-preco", "Veja o preço na " + loja(item)),
       dados,
       elemento("span", "ir", "Ver oferta")
     );
@@ -149,7 +164,7 @@
     clearTimeout(timerFoto);
     cartoes.forEach(function (c) {
       c.li.classList.toggle("destaque", c === cartao);
-      c.ir.textContent = c === cartao ? "Ver oferta na Shopee" : "Ver oferta";
+      c.ir.textContent = c === cartao ? "Ver oferta na " + loja(c.item) : "Ver oferta";
     });
     if (cartao) {
       timerFoto = setTimeout(function () {
@@ -176,7 +191,7 @@
 
     cartoes.forEach(function (c) {
       var ver = !termo || (numerico ? c.item.numero === Number(termo) : c.chave.indexOf(termo) !== -1);
-      if (!numerico && limitePreco && !(c.item.preco <= limitePreco)) ver = false;
+      if (!numerico && limitePreco && !(temPreco(c.item) && c.item.preco <= limitePreco)) ver = false;
       c.li.hidden = !ver;
       if (ver) {
         visiveis += 1;
@@ -208,8 +223,8 @@
       definirAcao("Ver todos", verTodos);
     } else {
       estado.textContent = cartoes.length === 1
-        ? "1 achado com nota alta e muitas vendas"
-        : cartoes.length + " achados com nota alta e muitas vendas";
+        ? "1 achado"
+        : cartoes.length + " achados, do mais novo para o mais antigo";
     }
   }
 
