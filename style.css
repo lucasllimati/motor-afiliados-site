@@ -71,9 +71,9 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 .marca {
   display: inline-flex; align-items: center; gap: 0.55rem;
-  color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -0.01em;
+  color: #fff; text-decoration: none; font: 400 1.5rem/1.1 var(--display); letter-spacing: 0.01em;
 }
-.marca svg { width: 2rem; height: 2rem; flex: none; }
+.marca svg { width: 2.25rem; height: 2.25rem; flex: none; }
 
 .botao {
   display: inline-block; padding: 0.65rem 1.1rem; border-radius: 999px;
@@ -199,6 +199,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   color: var(--tinta-suave); font-size: 0.8rem; line-height: 1.4;
 }
 .achado .estrelas { color: var(--tinta); font-weight: 600; }
+.achado .quando { flex-basis: 100%; }
 .achado .ir { margin: auto 0.8rem 0; padding-top: 0.5rem; color: var(--link); font-size: 0.9rem; font-weight: 700; }
 
 @media (hover: hover) {
@@ -260,24 +261,30 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 /* ---------- páginas de texto (termos, privacidade) ---------- */
 
-.barra { border-bottom: 1px solid var(--linha); padding-block: 1rem; }
-.barra .marca { color: var(--tinta); }
+.barra { background: var(--laranja); padding-block: 0.8rem; }
+.barra .miolo { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.barra :focus-visible { outline-color: #fff; }
+.voltar {
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  color: #fff; font-weight: 600; font-size: 0.95rem; white-space: nowrap;
+}
+.voltar:hover { color: #fff; }
 
-.documento { padding-block: clamp(2.25rem, 6vw, 4rem); }
-.documento > * { max-width: var(--medida); }
-.documento h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 0.6rem; }
-.documento .data { color: var(--tinta-suave); margin: 0 0 2.25rem; }
-.documento h2 { font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.015em; margin: 2.25rem 0 0.6rem; }
-.documento p, .documento li { margin: 0 0 0.8rem; }
+/* Coluna única e centralizada: linhas confortáveis, sem sobra de um lado só. */
+.documento { width: min(100% - 2rem, 44rem); margin-inline: auto; padding-block: clamp(2rem, 6vw, 3.5rem); }
+.documento h1 { margin: 0 0 0.35rem; font: 400 clamp(2.5rem, 9vw, 3.5rem)/1.08 var(--display); }
+.documento .data { color: var(--tinta-suave); font-size: 0.95rem; margin: 0 0 1.5rem; }
+.documento .resumo { margin: 0 0 2.25rem; padding: 1rem 1.15rem; background: var(--fundo-codigo); border-radius: var(--raio); text-wrap: pretty; }
+.documento h2 { font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.015em; font-weight: 700; margin: 2.25rem 0 0.5rem; }
+.documento p, .documento li { margin: 0 0 0.8rem; text-wrap: pretty; }
 .documento ul { padding-left: 1.25rem; }
 code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; background: var(--fundo-codigo); padding: 0.1em 0.35em; border-radius: 6px; }
 
 /* ---------- retorno da autorização (callback) ---------- */
 
-.retorno { min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; }
+.retorno { min-height: calc(100vh - 4rem); display: grid; place-items: center; padding: 1.5rem; }
 .painel { width: min(100%, 34rem); }
-.painel h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); letter-spacing: -0.025em; line-height: 1.1; margin: 1.5rem 0 0.75rem; font-weight: 800; }
-.painel .marca { color: var(--tinta); }
+.painel h1 { margin: 0 0 0.75rem; font: 400 clamp(2.25rem, 8vw, 3rem)/1.1 var(--display); }
 .status { color: var(--tinta-suave); margin: 0 0 1.25rem; }
 .codigo {
   display: block; width: 100%; padding: 1rem; margin: 0 0 0.9rem;
@@ -295,4 +302,5 @@ code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size
 .rodape { border-top: 1px solid var(--linha); padding-block: 1.75rem 2.25rem; color: var(--tinta-suave); font-size: 0.92rem; }
 .rodape nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-bottom: 0.5rem; }
 .rodape nav a { display: inline-block; padding-block: 0.3rem; }
+.rodape nav a[aria-current] { color: var(--tinta-suave); text-decoration: none; }
 .rodape p { margin: 0; }

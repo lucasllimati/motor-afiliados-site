@@ -40,7 +40,7 @@
       navigator.clipboard.writeText(code).then(function () {
         copiar.textContent = "Código copiado";
       }, function () {
-        copiar.textContent = "Não deu para copiar: selecione o código";
+        copiar.textContent = "Selecione o código e copie à mão";
       });
     });
   }
