@@ -1,5 +1,5 @@
 /* Achadinhos Picks: estilo único das páginas. A vitrine usa a Anton dos vídeos (só o subconjunto
-   necessário, 13 KB) nos números; o resto usa a fonte do sistema. */
+   necessário, 18 KB) nos números; o resto usa a fonte do sistema. */
 
 @font-face {
   font-family: "Anton";
@@ -64,6 +64,11 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 .miolo { width: min(100% - 2rem, 72rem); margin-inline: auto; }
 
+.so-leitor {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
 .marca {
   display: inline-flex; align-items: center; gap: 0.55rem;
   color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -0.01em;
@@ -81,16 +86,20 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .vitrine { background: var(--fundo); }
 
 .palco {
-  background: var(--laranja); color: #fff;
-  padding-block: 1rem 3.1rem;
+  background: var(--laranja); color: #fff; text-align: center;
+  padding-block: 1.25rem 3.75rem;
 }
+.palco .marca { gap: 0.7rem; font: 400 clamp(1.75rem, 7vw, 2.5rem)/1.1 var(--display); letter-spacing: 0.01em; }
+.palco .marca svg { width: clamp(2.5rem, 9vw, 3.25rem); height: clamp(2.5rem, 9vw, 3.25rem); }
 .palco :focus-visible { outline-color: #fff; }
 .palco h1 {
-  margin: clamp(1.25rem, 5vw, 2.5rem) 0 0;
-  font: 400 clamp(3.5rem, 21vw, 8rem)/1 var(--display);
-  text-transform: uppercase;
+  margin: clamp(1.25rem, 4vw, 2rem) 0 0;
+  font: 400 clamp(2.75rem, 13.5vw, 5.5rem)/1.08 var(--display);
+  text-wrap: balance;
 }
-.dica { display: block; margin-top: 0.6rem; max-width: 36ch; font-weight: 500; line-height: 1.35; }
+/* Uma frase por linha no celular; lado a lado quando couber. */
+.palco h1 span { display: block; }
+@media (min-width: 46rem) { .palco h1 span { display: inline; } }
 
 /* A etiqueta é a busca: fica sempre à mão, sobre a lista, ao rolar a página. */
 .busca {
@@ -99,7 +108,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   filter: drop-shadow(0 6px 12px rgba(31, 26, 23, 0.28));
 }
 .etiqueta-busca {
-  display: flex; align-items: center; max-width: 38rem; min-height: 4.5rem;
+  display: flex; align-items: center; max-width: 38rem; min-height: 4.5rem; margin-inline: auto;
   padding: 0.25rem 0.5rem 0.25rem 3rem;
   background: var(--etiqueta); color: #1f1a17;
   border-radius: 0.6rem 1.75rem 1.75rem 0.6rem;
@@ -111,7 +120,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .busca input {
   flex: 1; min-width: 0; height: 3.5rem; padding: 0;
   border: 0; border-radius: 0; outline: 0; background: transparent; color: inherit;
-  font: 400 clamp(1.75rem, 7vw, 2.4rem)/1.1 var(--display);
+  font: 400 clamp(1.25rem, 6.2vw, 2.2rem)/1.1 var(--display);
   -webkit-appearance: none; appearance: none;
 }
 .busca input::placeholder { color: #6d5900; opacity: 1; }
@@ -239,8 +248,10 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .canais span { font-size: 0.9rem; line-height: 1.3; color: var(--tinta-suave); }
 .canais strong { display: block; color: var(--tinta); font-size: 1.02rem; font-weight: 700; }
 
-.transparencia p { margin: 0 0 0.7rem; max-width: var(--medida); font-size: 0.95rem; color: var(--tinta-suave); }
-.transparencia p:last-child { margin-bottom: 0; }
+/* Duas ideias curtas lado a lado: ocupa a largura sem linhas longas. */
+.colunas { display: grid; gap: 0.9rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.transparencia p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--tinta-suave); text-wrap: pretty; }
+.transparencia strong { display: block; color: var(--tinta); font-weight: 600; }
 
 @media (prefers-contrast: more) {
   .achado, .canais a { border: 2px solid var(--tinta); }
