@@ -1,6 +1,17 @@
 {
- "atualizado_em": "2026-11-06T17:37:16+00:00",
+ "atualizado_em": "2026-11-06T23:37:14+00:00",
  "itens": [
+  {
+   "data": "2026-11-06",
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820l7-mu3jqpq6ls76dc",
+   "link": "https://s.shopee.com.br/8AXSav9ibq",
+   "nome": "Kit 6 Taça de Vidro Diamante 330ml Facetada Vinho Elegante",
+   "nota": 4.9,
+   "numero": 24,
+   "plataforma": "shopee",
+   "preco": 34.9,
+   "vendas": 384
+  },
   {
    "data": "2026-11-06",
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820m1-mukoqlfdn280c5",
@@ -8,6 +19,7 @@
    "nome": "BODY SPLASH FEMININO ARABE AYRA 100ML - PRIMACIAL PERFUME FLORAL",
    "nota": 4.8,
    "numero": 23,
+   "plataforma": "shopee",
    "preco": 24.9,
    "vendas": 5844
   },
@@ -18,6 +30,7 @@
    "nome": "Novo Guarda Chuva Automático Alta Resistência a Chuvas e Vento Forte Com Proteção UV",
    "nota": 4.8,
    "numero": 22,
+   "plataforma": "shopee",
    "preco": 30.8,
    "vendas": 5799
   },
@@ -28,6 +41,7 @@
    "nome": "ROMANTIC CROWN Copo Térmico Inox Portátil 1200ml/600ml com Tampa e Canudo Garrafa Térmica Inoxidável",
    "nota": 5.0,
    "numero": 21,
+   "plataforma": "shopee",
    "preco": 34.98,
    "vendas": 5473
   },
@@ -38,6 +52,7 @@
    "nome": "24 Pcs LouçA De Aço InoxidáVel Colher De Sobremesa Dourada / Luxuoso",
    "nota": 4.9,
    "numero": 20,
+   "plataforma": "shopee",
    "preco": 49.9,
    "vendas": 5838
   },
@@ -48,6 +63,7 @@
    "nome": "Espelho Flame Com Moldura Em Couro Orgânico Hall Sala Closet Quarto Luxo",
    "nota": 4.8,
    "numero": 19,
+   "plataforma": "shopee",
    "preco": 49.0,
    "vendas": 5502
   },
@@ -58,6 +74,7 @@
    "nome": "Manicrem Pasta De Amendoim Integral 100% Amendoim - 1kg",
    "nota": 4.9,
    "numero": 18,
+   "plataforma": "shopee",
    "preco": 23.95,
    "vendas": 7645
   },
@@ -68,6 +85,7 @@
    "nome": "Fone de Ouvido Sem Fio Com Cancelamento De Ruído Bluetooth Pop-Up",
    "nota": 4.8,
    "numero": 17,
+   "plataforma": "shopee",
    "preco": 42.89,
    "vendas": 5840
   },
@@ -78,6 +96,7 @@
    "nome": "Ventilador Luminária Led 6 Pás Lâmpada Soquete Bocal E27 Teto 3 Cores Luz Branco Amarelo Bivolt",
    "nota": 4.8,
    "numero": 16,
+   "plataforma": "shopee",
    "preco": 42.99,
    "vendas": 7589
   },
@@ -88,6 +107,7 @@
    "nome": "Jogo de Facas de Cozinha 8 Peças Genebra Corte Navalha Antiaderente Premium",
    "nota": 4.9,
    "numero": 15,
+   "plataforma": "shopee",
    "preco": 25.99,
    "vendas": 6714
   },
@@ -98,6 +118,7 @@
    "nome": "Chinelo Bandeirinha Original Sandalia De Dedo Unissex Verão. Presente para o Dia dos Pais",
    "nota": 4.7,
    "numero": 14,
+   "plataforma": "shopee",
    "preco": 19.9,
    "vendas": 11845
   },
@@ -108,6 +129,7 @@
    "nome": "Revitalizador de farol remove amarelado e aspecto fosco",
    "nota": 4.7,
    "numero": 13,
+   "plataforma": "shopee",
    "preco": 16.0,
    "vendas": 11942
   },
@@ -118,6 +140,7 @@
    "nome": "Moedor de especiarias elétrico 110V/220V, com 4 lâminas de aço inoxidável, para uso doméstico.",
    "nota": 4.8,
    "numero": 12,
+   "plataforma": "shopee",
    "preco": 36.08,
    "vendas": 15477
   },
@@ -128,6 +151,7 @@
    "nome": "Barbeador Elétrico 4 Em 1 Para Mulheres Remoção De Pelos Corporais feminino/aparador de pelos do nariz e sobrancelhas",
    "nota": 4.7,
    "numero": 11,
+   "plataforma": "shopee",
    "preco": 29.98,
    "vendas": 10817
   },
@@ -138,6 +162,7 @@
    "nome": "Fones de ouvido sem fio Bluetooth compactos Xiaomi Redmi Airdots com Estojo Recarregável",
    "nota": 4.8,
    "numero": 10,
+   "plataforma": "shopee",
    "preco": 21.79,
    "vendas": 9114
   },
@@ -148,6 +173,7 @@
    "nome": "Kit Potes Mantimentos Vidro Herméticos Com Tampa Bambu Alta Resistência Epsilon Transparente",
    "nota": 4.8,
    "numero": 9,
+   "plataforma": "shopee",
    "preco": 40.99,
    "vendas": 11049
   },
@@ -158,6 +184,7 @@
    "nome": "Maquina De Barbear e Aparador Pelos Elétrico 3 Em 1",
    "nota": 4.8,
    "numero": 8,
+   "plataforma": "shopee",
    "preco": 48.39,
    "vendas": 9757
   },
@@ -168,6 +195,7 @@
    "nome": "Máquina de Cortar Cabelo Dragão Aparador de Barba Masculino Sem Fio USB",
    "nota": 4.8,
    "numero": 7,
+   "plataforma": "shopee",
    "preco": 19.98,
    "vendas": 10498
   },
@@ -178,6 +206,7 @@
    "nome": "Chaleira Jarra Elétrica Térmica Bule Com Tampa Inox Prateada 1,8 Litros 1000W",
    "nota": 4.9,
    "numero": 6,
+   "plataforma": "shopee",
    "preco": 39.96,
    "vendas": 10481
   },
@@ -188,6 +217,7 @@
    "nome": "Carregador Sem Fio 5000/10000mAh iPhone",
    "nota": 4.7,
    "numero": 5,
+   "plataforma": "shopee",
    "preco": 28.85,
    "vendas": 12981
   },
@@ -198,6 +228,7 @@
    "nome": "Kit 5 Toalhas Umedecidas Turminha da Bagunça 120 Folhas com Tampa Lenço Umedecido",
    "nota": 4.9,
    "numero": 4,
+   "plataforma": "shopee",
    "preco": 34.65,
    "vendas": 16917
   },
@@ -208,6 +239,7 @@
    "nome": "40 Peças / 46 Peças Jogo De Chave Catraca Caixa De Ferramentas para Reparo de Carros / Conjuntos de Chaves",
    "nota": 4.8,
    "numero": 3,
+   "plataforma": "shopee",
    "preco": 28.99,
    "vendas": 13940
   },
@@ -218,6 +250,7 @@
    "nome": "Batedor Misturador Mixer Elétrico para Bebidas Leite Café Clara de Ovo 2 em 1",
    "nota": 4.8,
    "numero": 2,
+   "plataforma": "shopee",
    "preco": 18.69,
    "vendas": 15211
   },
@@ -228,6 +261,7 @@
    "nome": "Pasta De Amendoim Integral Vários Sabores Maniforce",
    "nota": 4.9,
    "numero": 1,
+   "plataforma": "shopee",
    "preco": 16.9,
    "vendas": 16839
   }
