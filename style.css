@@ -1,28 +1,38 @@
-/* Achadinhos Picks — estilo único das 4 páginas. Sem fontes externas: carrega instantâneo. */
+/* Achadinhos Picks: estilo único das páginas. A vitrine usa a Anton dos vídeos (só o subconjunto
+   necessário, 13 KB) nos números; o resto usa a fonte do sistema. */
+
+@font-face {
+  font-family: "Anton";
+  src: url("fontes/anton.woff2") format("woff2");
+  font-display: swap;
+}
 
 :root {
-  --laranja: #f2511b;
-  --brasa: #b83a0e;
+  --laranja: #d93a00;
+  --brasa: #b02f00;
   --etiqueta: #ffd43b;
-  --tinta: #231e1b;
-  --tinta-suave: #5c524c;
+  --tinta: #1f1a17;
+  --tinta-suave: #5f5853;
   --papel: #ffffff;
-  --linha: #ece4de;
-  --fundo-codigo: #fff4ec;
+  --fundo: #f3f3f5;
+  --linha: #e4e3e6;
+  --fundo-codigo: #fff1e8;
   --link: var(--brasa);
   --raio: 14px;
   --medida: 68ch;
+  --display: "Anton", Impact, "Arial Narrow", sans-serif;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --tinta: #f6eee8;
-    --tinta-suave: #c9bbb1;
-    --papel: #1f1915;
-    --linha: #3a302a;
-    --fundo-codigo: #2b221d;
-    --link: #ff8a5c;
+    --tinta: #f5f1ee;
+    --tinta-suave: #bdb5af;
+    --papel: #26211e;
+    --fundo: #181513;
+    --linha: #3a3430;
+    --fundo-codigo: #2f2622;
+    --link: #ff9a70;
   }
 }
 
@@ -36,137 +46,217 @@ body {
   margin: 0;
   background: var(--papel);
   color: var(--tinta);
-  font: 400 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  text-rendering: optimizeLegibility;
+  font: 400 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 0.08em; }
 a:hover { text-decoration-thickness: 0.14em; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
-:focus-visible { outline: 3px solid var(--etiqueta); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--laranja); outline-offset: 3px; border-radius: 4px; }
 
 .pular {
-  position: absolute; left: 1rem; top: -3rem;
-  background: var(--etiqueta); color: #231e1b; padding: 0.5rem 0.9rem; border-radius: 8px;
+  position: absolute; left: 1rem; top: -4rem;
+  background: var(--etiqueta); color: #1f1a17; padding: 0.5rem 0.9rem; border-radius: 8px;
   font-weight: 700; text-decoration: none; z-index: 10;
 }
 .pular:focus { top: 1rem; }
 
-.miolo { width: min(100% - 2.5rem, 64rem); margin-inline: auto; }
-
-/* ---------- topo laranja (página inicial) ---------- */
-
-.topo {
-  background: var(--laranja);
-  color: #fff;
-  padding-block: clamp(1.25rem, 3vw, 2rem) clamp(3.5rem, 9vw, 6.5rem);
-  overflow: hidden;
-}
+.miolo { width: min(100% - 2rem, 72rem); margin-inline: auto; }
 
 .marca {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em;
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -0.01em;
 }
-.marca svg { width: 2.4rem; height: 2.4rem; flex: none; }
-
-.topo-grade {
-  display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  align-items: center; gap: 2rem; margin-top: clamp(2.5rem, 7vw, 5rem);
-}
-
-.topo h1 {
-  margin: 0; font-weight: 850; letter-spacing: -0.035em; line-height: 0.98;
-  font-size: clamp(2.6rem, 7.2vw, 5.2rem); max-width: 12ch; text-wrap: balance;
-}
-
-.topo p.lead {
-  margin: 1.4rem 0 0; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.5;
-  max-width: 34ch; color: #fff4ee;
-}
-
-/* A etiqueta amarela de oferta: o único elemento chamativo do site. */
-.etiqueta {
-  justify-self: center;
-  position: relative;
-  background: var(--etiqueta); color: #231e1b;
-  padding: 1.6rem 1.6rem 1.4rem 2.6rem;
-  border-radius: 10px 22px 22px 10px;
-  transform: rotate(-6deg);
-  box-shadow: 0 18px 0 -8px rgba(120, 30, 0, 0.35);
-  max-width: 17rem;
-}
-.etiqueta::before { /* furo da etiqueta */
-  content: ""; position: absolute; left: 0.9rem; top: 50%;
-  width: 0.85rem; height: 0.85rem; margin-top: -0.425rem;
-  border-radius: 50%; background: var(--laranja);
-}
-.etiqueta strong { display: block; font-size: clamp(2.6rem, 6vw, 3.6rem); line-height: 1; font-weight: 900; letter-spacing: -0.04em; }
-.etiqueta span { display: block; font-weight: 700; line-height: 1.3; margin-top: 0.35rem; }
-.etiqueta small { display: block; margin-top: 0.7rem; font-size: 0.85rem; line-height: 1.35; }
-
-/* Balança presa pelo furo ao carregar. Só mexe na rotação, sem esconder: se a animação
-   não rodar, a etiqueta continua visível. */
-@media (prefers-reduced-motion: no-preference) {
-  .etiqueta { animation: balanca 1100ms cubic-bezier(.3, 1.6, .5, 1); transform-origin: 1.3rem 50%; }
-  @keyframes balanca {
-    from { transform: rotate(10deg); }
-    to { transform: rotate(-6deg); }
-  }
-}
-
-/* ---------- seções ---------- */
-
-main section { padding-block: clamp(2.75rem, 7vw, 4.5rem); }
-main section + section { border-top: 1px solid var(--linha); }
-
-h2 { font-size: clamp(1.45rem, 3vw, 1.9rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 800; margin: 0 0 1.25rem; }
-.intro { color: var(--tinta-suave); max-width: var(--medida); margin: -0.5rem 0 1.75rem; }
-
-/* Canais: linhas, não cards. */
-.canais { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
-.canais li {
-  display: grid; grid-template-columns: 2.75rem minmax(0, 1fr) auto; align-items: center; gap: 1rem;
-  padding-block: 1.1rem; border-bottom: 1px solid var(--linha);
-}
-.canais .icone { width: 2.75rem; height: 2.75rem; border-radius: 50%; display: grid; place-items: center; background: var(--fundo-codigo); color: var(--laranja); }
-.canais .icone svg { width: 1.35rem; height: 1.35rem; }
-.canais h3 { margin: 0; font-size: 1.08rem; font-weight: 750; }
-.canais p { margin: 0.1rem 0 0; color: var(--tinta-suave); font-size: 0.95rem; }
+.marca svg { width: 2rem; height: 2rem; flex: none; }
 
 .botao {
   display: inline-block; padding: 0.65rem 1.1rem; border-radius: 999px;
-  background: var(--laranja); color: #fff; font-weight: 750; text-decoration: none; white-space: nowrap;
+  background: var(--laranja); color: #fff; font-weight: 700; text-decoration: none; white-space: nowrap;
 }
 .botao:hover { background: var(--brasa); }
 
-/* "Como escolhemos" é de fato uma sequência: numerar faz sentido. */
-.passos { counter-reset: passo; list-style: none; margin: 0; padding: 0; display: grid; gap: 1.75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.passos li { counter-increment: passo; }
-.passos li::before {
-  content: counter(passo); display: grid; place-items: center;
-  width: 2.2rem; height: 2.2rem; border-radius: 50%; margin-bottom: 0.8rem;
-  border: 2px solid var(--laranja); color: var(--laranja); font-weight: 800;
-}
-.passos h3 { margin: 0 0 0.35rem; font-size: 1.08rem; font-weight: 750; }
-.passos p { margin: 0; color: var(--tinta-suave); }
+/* ---------- vitrine: o palco laranja e a etiqueta de busca ---------- */
 
-.aviso {
-  border-left: 4px solid var(--laranja); padding: 0.2rem 0 0.2rem 1.2rem; max-width: var(--medida);
+.vitrine { background: var(--fundo); }
+
+.palco {
+  background: var(--laranja); color: #fff;
+  padding-block: 1rem 3.1rem;
 }
-.aviso p { margin: 0 0 0.8rem; }
-.aviso p:last-child { margin-bottom: 0; }
+.palco :focus-visible { outline-color: #fff; }
+.palco h1 {
+  margin: clamp(1.25rem, 5vw, 2.5rem) 0 0;
+  font: 400 clamp(3.5rem, 21vw, 8rem)/1 var(--display);
+  text-transform: uppercase;
+}
+.dica { display: block; margin-top: 0.6rem; max-width: 36ch; font-weight: 500; line-height: 1.35; }
+
+/* A etiqueta é a busca: fica sempre à mão, sobre a lista, ao rolar a página. */
+.busca {
+  position: sticky; top: 0.6rem; z-index: 5;
+  width: min(100% - 2rem, 72rem); margin: -2.3rem auto 0;
+  filter: drop-shadow(0 6px 12px rgba(31, 26, 23, 0.28));
+}
+.etiqueta-busca {
+  display: flex; align-items: center; max-width: 38rem; min-height: 4.5rem;
+  padding: 0.25rem 0.5rem 0.25rem 3rem;
+  background: var(--etiqueta); color: #1f1a17;
+  border-radius: 0.6rem 1.75rem 1.75rem 0.6rem;
+  /* O furo da etiqueta deixa ver o que está atrás. */
+  -webkit-mask: radial-gradient(circle at 1.45rem 50%, transparent 0.42rem, #000 0.46rem);
+  mask: radial-gradient(circle at 1.45rem 50%, transparent 0.42rem, #000 0.46rem);
+  transform-origin: 1.45rem 50%;
+}
+.busca input {
+  flex: 1; min-width: 0; height: 3.5rem; padding: 0;
+  border: 0; border-radius: 0; outline: 0; background: transparent; color: inherit;
+  font: 400 clamp(1.75rem, 7vw, 2.4rem)/1.1 var(--display);
+  -webkit-appearance: none; appearance: none;
+}
+.busca input::placeholder { color: #6d5900; opacity: 1; }
+.busca input::-webkit-search-cancel-button { display: none; }
+.busca:focus-within .etiqueta-busca { box-shadow: inset 0 0 0 3px #1f1a17; }
+
+.limpar {
+  flex: none; width: 3rem; height: 3rem; padding: 0.7rem; border: 0; border-radius: 50%;
+  background: transparent; color: inherit; cursor: pointer;
+}
+.limpar[hidden] { display: none; }
+.limpar:active { background: rgba(31, 26, 23, 0.14); }
+
+/* Balança presa pelo furo ao abrir: o único movimento que não vem de um toque. */
+@media (prefers-reduced-motion: no-preference) {
+  .etiqueta-busca { animation: balanca 900ms cubic-bezier(0.3, 1.5, 0.5, 1); }
+  @keyframes balanca {
+    from { transform: rotate(3.5deg); }
+    to { transform: rotate(0); }
+  }
+}
+
+/* ---------- lista ---------- */
+
+#achados { padding-block: 1.25rem 3rem; scroll-margin-top: 6rem; }
+
+.estado-linha { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.75rem; margin-bottom: 0.5rem; }
+.estado-linha p { margin: 0; color: var(--tinta-suave); font-size: 0.95rem; line-height: 1.35; }
+
+.botao-leve {
+  flex: none; min-height: 2.75rem; padding: 0 0.9rem; border: 0; border-radius: 999px;
+  background: var(--papel); color: var(--link); font: inherit; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+}
+.botao-leve[hidden] { display: none; }
+.botao-leve:active { transform: scale(0.97); }
+
+.grade-achados {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+}
+.achado {
+  background: var(--papel); border-radius: 1.1rem; overflow: hidden;
+  /* O navegador não desenha o que está longe da tela. */
+  content-visibility: auto; contain-intrinsic-size: auto 23rem;
+}
+.achado[hidden] { display: none; }
+.achado.molde { aspect-ratio: 10 / 16; }
+.achado a {
+  display: flex; flex-direction: column; height: 100%; padding-bottom: 0.9rem;
+  color: inherit; text-decoration: none;
+}
+.achado a:active { transform: scale(0.98); transition: transform 100ms ease-out; }
+.achado a:focus-visible { outline-offset: -3px; border-radius: 1.1rem; }
+
+/* As fotos dos anúncios têm fundo branco: a moldura branca as mantém iguais no modo escuro. */
+.foto { position: relative; background: #fff; }
+.foto img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
+
+.selo {
+  position: absolute; top: 0.5rem; left: 0.5rem;
+  padding: 0.25rem 0.65rem 0.25rem 1.3rem;
+  background: var(--etiqueta); color: #1f1a17;
+  font: 400 1.2rem/1.2 var(--display);
+  border-radius: 0.3rem 0.8rem 0.8rem 0.3rem;
+  -webkit-mask: radial-gradient(circle at 0.62rem 50%, transparent 0.2rem, #000 0.23rem);
+  mask: radial-gradient(circle at 0.62rem 50%, transparent 0.2rem, #000 0.23rem);
+}
+
+.achado h3 {
+  margin: 0.7rem 0.8rem 0; font-size: 0.92rem; line-height: 1.3; font-weight: 500;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.achado .preco { margin: 0.4rem 0.8rem 0; font: 400 1.6rem/1.15 var(--display); color: var(--link); }
+.achado .dados {
+  display: flex; flex-wrap: wrap; gap: 0 0.6rem; margin: 0.2rem 0.8rem 0;
+  color: var(--tinta-suave); font-size: 0.8rem; line-height: 1.4;
+}
+.achado .estrelas { color: var(--tinta); font-weight: 600; }
+.achado .ir { margin: auto 0.8rem 0; padding-top: 0.5rem; color: var(--link); font-size: 0.9rem; font-weight: 700; }
+
+@media (hover: hover) {
+  .achado a:hover .ir { text-decoration: underline; text-underline-offset: 0.2em; }
+  .achado a:hover h3 { color: var(--link); }
+}
+
+/* Digitou o número certo: o achado toma a tela e o botão de compra aparece grande. */
+.achado.destaque { grid-column: 1 / -1; content-visibility: visible; }
+.achado.destaque .selo {
+  top: 0.8rem; left: 0.8rem; padding: 0.35rem 1rem 0.35rem 1.9rem; font-size: 2rem;
+  border-radius: 0.4rem 1.1rem 1.1rem 0.4rem;
+  -webkit-mask: radial-gradient(circle at 0.92rem 50%, transparent 0.3rem, #000 0.33rem);
+  mask: radial-gradient(circle at 0.92rem 50%, transparent 0.3rem, #000 0.33rem);
+}
+.achado.destaque h3 { margin: 1rem 1.1rem 0; font-size: 1.15rem; -webkit-line-clamp: 4; }
+.achado.destaque .preco { margin: 0.6rem 1.1rem 0; font-size: 3rem; }
+.achado.destaque .dados { margin: 0.3rem 1.1rem 0; font-size: 0.95rem; }
+.achado.destaque .ir {
+  margin: 1.1rem 1.1rem 0.25rem; padding: 0.95rem; border-radius: 999px; text-align: center;
+  background: var(--laranja); color: #fff; font-size: 1.05rem;
+}
+
+@media (min-width: 46rem) {
+  .grade-achados { gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); }
+  .achado.destaque a {
+    display: grid; grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1fr; column-gap: 1rem; padding-bottom: 0;
+  }
+  .achado.destaque .foto { grid-row: 1 / 5; }
+  .achado.destaque h3 { margin-top: 1.5rem; font-size: 1.4rem; }
+  .achado.destaque .ir { align-self: end; justify-self: start; margin-bottom: 1.5rem; padding-inline: 2.5rem; }
+}
+
+/* ---------- canais e transparência ---------- */
+
+.seguir, .transparencia { padding-block: 2.25rem; border-top: 1px solid var(--linha); }
+.seguir h2, .transparencia h2 { margin: 0 0 1rem; font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
+
+.canais { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.canais a {
+  display: flex; align-items: center; gap: 0.85rem; min-height: 4rem; padding: 0.7rem 1rem;
+  background: var(--papel); border-radius: 1.1rem; color: inherit; text-decoration: none;
+}
+.canais a:active { transform: scale(0.98); transition: transform 100ms ease-out; }
+.canais svg { flex: none; width: 1.6rem; height: 1.6rem; color: var(--link); }
+.canais span { font-size: 0.9rem; line-height: 1.3; color: var(--tinta-suave); }
+.canais strong { display: block; color: var(--tinta); font-size: 1.02rem; font-weight: 700; }
+
+.transparencia p { margin: 0 0 0.7rem; max-width: var(--medida); font-size: 0.95rem; color: var(--tinta-suave); }
+.transparencia p:last-child { margin-bottom: 0; }
+
+@media (prefers-contrast: more) {
+  .achado, .canais a { border: 2px solid var(--tinta); }
+  .etiqueta-busca { box-shadow: inset 0 0 0 2px #1f1a17; }
+}
 
 /* ---------- páginas de texto (termos, privacidade) ---------- */
 
 .barra { border-bottom: 1px solid var(--linha); padding-block: 1rem; }
 .barra .marca { color: var(--tinta); }
-.barra .marca svg { width: 2rem; height: 2rem; }
 
 .documento { padding-block: clamp(2.25rem, 6vw, 4rem); }
 .documento > * { max-width: var(--medida); }
-.documento h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 850; margin: 0 0 0.6rem; }
+.documento h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 0.6rem; }
 .documento .data { color: var(--tinta-suave); margin: 0 0 2.25rem; }
-.documento h2 { font-size: 1.3rem; margin: 2.25rem 0 0.6rem; }
+.documento h2 { font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.015em; margin: 2.25rem 0 0.6rem; }
 .documento p, .documento li { margin: 0 0 0.8rem; }
 .documento ul { padding-left: 1.25rem; }
 code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; background: var(--fundo-codigo); padding: 0.1em 0.35em; border-radius: 6px; }
@@ -175,9 +265,8 @@ code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size
 
 .retorno { min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; }
 .painel { width: min(100%, 34rem); }
-.painel h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); letter-spacing: -0.025em; line-height: 1.1; margin: 1.5rem 0 0.75rem; font-weight: 850; }
+.painel h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); letter-spacing: -0.025em; line-height: 1.1; margin: 1.5rem 0 0.75rem; font-weight: 800; }
 .painel .marca { color: var(--tinta); }
-.painel .marca svg { width: 2rem; height: 2rem; }
 .status { color: var(--tinta-suave); margin: 0 0 1.25rem; }
 .codigo {
   display: block; width: 100%; padding: 1rem; margin: 0 0 0.9rem;
@@ -192,50 +281,7 @@ code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size
 
 /* ---------- rodapé ---------- */
 
-.rodape { border-top: 1px solid var(--linha); padding-block: 2rem 2.5rem; color: var(--tinta-suave); font-size: 0.95rem; }
-.rodape nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 0.6rem; }
-
-/* ---------- celular ---------- */
-
-@media (max-width: 760px) {
-  .topo-grade { grid-template-columns: 1fr; }
-  .etiqueta { justify-self: start; margin-left: 0.5rem; }
-  .passos { grid-template-columns: 1fr; }
-  .canais li { grid-template-columns: 2.75rem minmax(0, 1fr); }
-  .canais .botao { grid-column: 2; justify-self: start; }
-}
-
-/* ---------- vitrine de achados (página inicial) ---------- */
-
-.topo-vitrine { padding-block: clamp(1.25rem, 3vw, 2rem) clamp(2rem, 5vw, 3.25rem); }
-.topo-vitrine h1 { font-size: clamp(2.2rem, 6vw, 4rem); max-width: 16ch; margin-top: clamp(1.75rem, 5vw, 3rem); }
-
-.busca { margin-top: 1.6rem; max-width: 32rem; }
-.busca label { display: block; font-weight: 700; margin-bottom: 0.4rem; color: #fff4ee; }
-.busca input {
-  width: 100%; font: inherit; font-size: 1.1rem; padding: 0.85rem 1.1rem;
-  border: 0; border-radius: 999px; background: #fff; color: #231e1b;
-}
-.busca input:focus-visible { outline: 3px solid var(--etiqueta); outline-offset: 2px; }
-
-.grade-achados {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
-}
-.achado {
-  position: relative; display: flex; flex-direction: column; gap: 0.55rem;
-  border: 1px solid var(--linha); border-radius: var(--raio); padding: 0.9rem; background: var(--papel);
-}
-.achado img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 10px; background: var(--fundo-codigo); }
-.achado h3 {
-  margin: 0; font-size: 1rem; line-height: 1.35; font-weight: 650;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-.achado .dados { margin: 0; color: var(--tinta-suave); font-size: 0.92rem; }
-.achado .botao { margin-top: auto; text-align: center; }
-.achado .numero {
-  position: absolute; top: 0.4rem; left: 0.4rem; z-index: 1;
-  background: var(--etiqueta); color: #231e1b; font-weight: 900; font-size: 1.05rem;
-  padding: 0.3rem 0.7rem; border-radius: 6px 14px 14px 6px; transform: rotate(-4deg);
-  box-shadow: 0 4px 0 -1px rgba(120, 30, 0, 0.35);
-}
+.rodape { border-top: 1px solid var(--linha); padding-block: 1.75rem 2.25rem; color: var(--tinta-suave); font-size: 0.92rem; }
+.rodape nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-bottom: 0.5rem; }
+.rodape nav a { display: inline-block; padding-block: 0.3rem; }
+.rodape p { margin: 0; }
