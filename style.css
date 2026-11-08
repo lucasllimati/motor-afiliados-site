@@ -157,14 +157,37 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .botao-leve[hidden] { display: none; }
 .botao-leve:active { transform: scale(0.97); }
 
-.filtros { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
+.filtros { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; margin-bottom: 0.9rem; }
 .filtros[hidden] { display: none; }
-.filtros button {
+/* No celular, as faixas rolam de lado em vez de quebrar em duas linhas. */
+.faixas {
+  position: relative; display: flex; gap: 0.5rem; flex: 1 1 100%; min-width: 0;
+  overflow-x: auto; scrollbar-width: none; padding: 6px; margin: -6px; /* folga para o contorno de foco */
+}
+.faixas::-webkit-scrollbar { display: none; }
+.faixas button {
+  flex: none; white-space: nowrap;
   min-height: 2.75rem; padding: 0 1rem; border: 0; border-radius: 999px;
   background: var(--papel); color: var(--tinta); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
 }
-.filtros button:active { transform: scale(0.97); }
-.filtros button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+.faixas button[hidden] { display: none; }
+.faixas button:active { transform: scale(0.97); }
+.faixas button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+.conta { margin-left: 0.4rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.conta:empty { display: none; }
+
+.ordem { display: flex; align-items: center; gap: 0.6rem; color: var(--tinta-suave); font-size: 0.92rem; }
+.seta { position: relative; display: inline-flex; }
+.seta::after {
+  content: ""; position: absolute; right: 1rem; top: 50%; width: 0.45rem; height: 0.45rem; pointer-events: none;
+  border-right: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); transform: translateY(-70%) rotate(45deg);
+}
+.ordem select {
+  appearance: none; -webkit-appearance: none;
+  min-height: 2.75rem; padding: 0 2.5rem 0 1rem; border: 0; border-radius: 999px;
+  background: var(--papel); color: var(--tinta); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
+}
+@media (min-width: 46rem) { .faixas { flex: 0 1 auto; } }
 
 .grade-achados {
   list-style: none; margin: 0; padding: 0;
