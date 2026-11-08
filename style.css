@@ -145,7 +145,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 /* ---------- lista ---------- */
 
-#achados { padding-block: 1.25rem 3rem; scroll-margin-top: 6rem; }
+#achados { padding-block: 0.5rem 3rem; scroll-margin-top: 6rem; }
 
 .estado-linha { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.75rem; margin-bottom: 0.5rem; }
 .estado-linha p { margin: 0; color: var(--tinta-suave); font-size: 0.95rem; line-height: 1.35; }
@@ -157,7 +157,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .botao-leve[hidden] { display: none; }
 .botao-leve:active { transform: scale(0.97); }
 
-.filtros { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; margin-bottom: 0.9rem; }
+.filtros { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 0.8rem; }
 .filtros[hidden] { display: none; }
 /* No celular, as faixas rolam de lado em vez de quebrar em duas linhas. */
 .faixas {
@@ -176,19 +176,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .faixas button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
 .conta { margin-left: 0.4rem; font-weight: 400; font-variant-numeric: tabular-nums; }
 .conta:empty { display: none; }
-
-.ordem { display: flex; align-items: center; gap: 0.6rem; color: var(--tinta-suave); font-size: 0.92rem; }
-.seta { position: relative; display: inline-flex; }
-.seta::after {
-  content: ""; position: absolute; right: 1rem; top: 50%; width: 0.45rem; height: 0.45rem; pointer-events: none;
-  border-right: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); transform: translateY(-70%) rotate(45deg);
-}
-.ordem select {
-  appearance: none; -webkit-appearance: none;
-  min-height: 2.75rem; padding: 0 2.5rem 0 1rem; border: 0; border-radius: 999px;
-  background: var(--papel); color: var(--tinta); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
-}
-@media (min-width: 46rem) { .faixas { flex: 0 1 auto; } }
 
 .grade-achados {
   list-style: none; margin: 0; padding: 0;
@@ -249,6 +236,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   background: var(--etiqueta); color: #1f1a17; border-radius: 0.4rem;
   font: 700 0.78rem/1.3 system-ui, sans-serif;
 }
+.desconto-texto { margin: 0.3rem 0 0; color: var(--tinta-suave); font-size: 0.85rem; font-weight: 600; }
 .antes { margin: 0.1rem 0.8rem 0; color: var(--tinta-suave); font-size: 0.8rem; font-weight: 600; }
 .achado .sem-preco { margin: 0.4rem 0.8rem 0; color: var(--link); font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
 .achado.destaque .sem-preco { margin: 0.6rem 1.1rem 0; font-size: 1.25rem; }
@@ -338,33 +326,26 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 /* ---------- como funciona, coleções, voltar ao topo ---------- */
 
-.passos {
-  list-style: none; margin: 1.1rem 0 0; padding: 0;
-  display: grid; gap: 0.5rem; grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.passos li {
-  display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.7rem;
-  background: var(--papel); border-radius: 0.9rem; color: var(--tinta-suave); font-size: 0.82rem; line-height: 1.25;
-}
-.passos span {
-  flex: none; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 999px;
-  background: var(--etiqueta); color: #1f1a17; font: 400 1rem/1 var(--display);
-}
+.dica { margin: 0.9rem 0 0; color: var(--tinta-suave); font-size: 0.88rem; line-height: 1.4; }
 
-.colecoes {
-  display: flex; align-items: center; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
-  padding: 6px; margin: -6px -6px 0.9rem;
+/* Categorias rolam de lado; preço e ordem são dois seletores compactos ao lado (ou abaixo). */
+#categorias { flex: 1 1 100%; }
+.seletores { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.seta { position: relative; display: inline-flex; }
+.seta::after {
+  content: ""; position: absolute; right: 1rem; top: 50%; width: 0.45rem; height: 0.45rem; pointer-events: none;
+  border-right: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); transform: translateY(-70%) rotate(45deg);
 }
-.colecoes::-webkit-scrollbar { display: none; }
-.colecoes[hidden] { display: none; }
-.colecoes .rotulo { flex: none; color: var(--tinta-suave); font-size: 0.85rem; }
-.colecoes a {
-  flex: none; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.95rem;
-  border: 0; border-radius: 999px; background: var(--papel); color: var(--tinta);
-  font-size: 0.88rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+.seletores select {
+  appearance: none; -webkit-appearance: none;
+  min-height: 2.75rem; padding: 0 2.5rem 0 1rem; border: 0; border-radius: 999px;
+  background: var(--papel); color: var(--tinta); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
 }
-.colecoes a[aria-current] { background: var(--etiqueta); color: #1f1a17; }
-#categorias { flex-basis: 100%; }
+@media (min-width: 46rem) {
+  /* No computador não há barra de rolagem à vista: as categorias quebram linha. */
+  #categorias { flex: 1 1 0; flex-wrap: wrap; overflow: visible; }
+  .seletores { flex: none; align-self: flex-start; }
+}
 
 .topo {
   position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 5;
@@ -389,6 +370,8 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 }
 .detalhe .fechar svg { width: 1.2rem; height: 1.2rem; }
 .detalhe .info { padding: 1rem 1.2rem 1.4rem; }
+/* O título recebe o foco ao abrir (para o leitor de tela), mas não é clicável: sem contorno. */
+.detalhe h2:focus { outline: none; }
 .detalhe h2 { margin: 0.2rem 0 0.5rem; font-size: 1.15rem; line-height: 1.3; font-weight: 600; }
 .detalhe .categoria { margin: 0; color: var(--tinta-suave); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .detalhe .preco { margin: 0; font-size: 2.4rem; }
@@ -434,7 +417,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .transparencia strong { display: block; color: var(--tinta); font-weight: 600; }
 
 @media (prefers-contrast: more) {
-  .achado, .canais a, .passos li { border: 2px solid var(--tinta); }
+  .achado, .canais a { border: 2px solid var(--tinta); }
   .etiqueta-busca { box-shadow: inset 0 0 0 2px #1f1a17; }
 }
 
