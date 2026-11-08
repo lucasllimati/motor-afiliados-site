@@ -19,8 +19,8 @@
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://cf.shopee.com.br">
   <link rel="preload" href="fontes/anton.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=7">
-  <script src="achados.js?v=6" defer></script>
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="achados.js?v=7" defer></script>
 </head>
 <body class="vitrine">
   <a class="pular" href="#achados">Pular para os achados</a>
@@ -51,10 +51,24 @@
         <p id="estado" role="status">Carregando os achados…</p>
         <button id="acao" class="botao-leve" type="button" hidden></button>
       </div>
-      <div id="filtros" class="filtros" role="group" aria-label="Filtrar por preço" hidden>
-        <button type="button" data-ate="0" aria-pressed="true">Todos</button>
-        <button type="button" data-ate="20" aria-pressed="false">Até R$ 20</button>
-        <button type="button" data-ate="30" aria-pressed="false">Até R$ 30</button>
+      <div id="filtros" class="filtros" hidden>
+        <div class="faixas" role="group" aria-label="Filtrar por preço">
+          <button type="button" data-ate="0" aria-pressed="true">Todos<span class="conta"></span></button>
+          <button type="button" data-ate="20" aria-pressed="false">Até R$ 20<span class="conta"></span></button>
+          <button type="button" data-ate="30" aria-pressed="false">Até R$ 30<span class="conta"></span></button>
+          <button type="button" data-ate="50" aria-pressed="false">Até R$ 50<span class="conta"></span></button>
+        </div>
+        <label class="ordem">
+          <span>Ordenar</span>
+          <span class="seta">
+            <select id="ordem">
+              <option value="novos">Mais novos</option>
+              <option value="preco">Menor preço</option>
+              <option value="vendas">Mais vendidos</option>
+              <option value="nota">Melhor nota</option>
+            </select>
+          </span>
+        </label>
       </div>
       <ol id="lista" class="grade-achados">
         <li class="achado molde" aria-hidden="true"></li>

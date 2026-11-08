@@ -12,6 +12,23 @@
   var acao = document.getElementById("acao");
   var secao = document.getElementById("achados");
   var filtros = document.getElementById("filtros");
+  var ordem = document.getElementById("ordem");
+  var FAIXAS = [20, 30, 50];
+  // Como cada ordem compara dois cartões; empate fica com o mais novo.
+  var ORDENS = {
+    novos: function () { return 0; },
+    preco: function (a, b) { return precoOuFim(a) - precoOuFim(b); },
+    vendas: function (a, b) { return (b.item.vendas || 0) - (a.item.vendas || 0); },
+    nota: function (a, b) {
+      return (b.item.nota || 0) - (a.item.nota || 0) || (b.item.vendas || 0) - (a.item.vendas || 0);
+    },
+  };
+  var LEGENDA_ORDEM = {
+    novos: "do mais novo para o mais antigo",
+    preco: "do menor para o maior preço",
+    vendas: "dos mais vendidos para os menos",
+    nota: "das melhores notas para as menores",
+  };
   var limitePreco = 0;
   var DIAS_DE_NOVO = 1; // hoje e ontem
   var dataMaisRecente = "";
@@ -23,6 +40,11 @@
 
   function temPreco(item) {
     return item.preco !== null && item.preco !== undefined;
+  }
+
+  // Sem preço (ex.: Amazon) vai para o fim quando a ordem é por preço.
+  function precoOuFim(cartao) {
+    return temPreco(cartao.item) ? cartao.item.preco : Infinity;
   }
 
   function preco(valor) {
@@ -150,14 +172,50 @@
   function verTodos() {
     busca.value = "";
     definirLimite(0);
+    ordem.value = "novos";
+    ordenar();
     mostrar();
+  }
+
+  function ordenar() {
+    var comparar = ORDENS[ordem.value] || ORDENS.novos;
+    var ordenados = cartoes.slice().sort(function (a, b) {
+      return comparar(a, b) || b.item.numero - a.item.numero;
+    });
+    lista.append.apply(lista, ordenados.map(function (c) { return c.li; }));
+  }
+
+  // Quantos achados há em cada faixa; faixa vazia some.
+  function contarFaixas() {
+    filtros.querySelectorAll("[data-ate]").forEach(function (b) {
+      var ate = Number(b.dataset.ate);
+      var n = cartoes.filter(function (c) {
+        return !ate || (temPreco(c.item) && c.item.preco <= ate);
+      }).length;
+      var rotulo = b.firstChild.textContent;
+      b.querySelector(".conta").textContent = String(n);
+      b.setAttribute("aria-label", rotulo + ", " + n + (n === 1 ? " achado" : " achados"));
+      b.hidden = Boolean(ate) && n === 0;
+    });
   }
 
   function definirLimite(valor) {
     limitePreco = valor;
-    filtros.querySelectorAll("button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(Number(b.dataset.ate) === valor));
+    filtros.querySelectorAll("[data-ate]").forEach(function (b) {
+      var ativo = Number(b.dataset.ate) === valor;
+      b.setAttribute("aria-pressed", String(ativo));
+      if (ativo) mostrarFaixa(b);
     });
+  }
+
+  // No celular as faixas rolam de lado: a escolhida não pode ficar fora da tela.
+  function mostrarFaixa(botao) {
+    var faixas = botao.parentNode;
+    var inicio = botao.offsetLeft;
+    var fim = inicio + botao.offsetWidth;
+    if (inicio < faixas.scrollLeft || fim > faixas.scrollLeft + faixas.clientWidth) {
+      faixas.scrollLeft = Math.max(0, fim - faixas.clientWidth + 16);
+    }
   }
 
   function destacar(cartao) {
@@ -178,8 +236,20 @@
     }
   }
 
+  // Faixa e ordem ficam no endereço: o link compartilhado abre do mesmo jeito.
   function atualizarEndereco(numero) {
-    history.replaceState(null, "", location.pathname + location.search + (numero ? "#" + numero : ""));
+    var p = new URLSearchParams();
+    if (limitePreco) p.set("ate", String(limitePreco));
+    if (ordem.value !== "novos") p.set("ordem", ordem.value);
+    var consulta = p.toString() ? "?" + p.toString() : "";
+    history.replaceState(null, "", location.pathname + consulta + (numero ? "#" + numero : ""));
+  }
+
+  function lerFiltrosDoEndereco() {
+    var p = new URLSearchParams(location.search);
+    var ate = Number(p.get("ate"));
+    definirLimite(FAIXAS.indexOf(ate) !== -1 ? ate : 0);
+    ordem.value = ORDENS.hasOwnProperty(p.get("ordem")) ? p.get("ordem") : "novos";
   }
 
   function mostrar() {
@@ -224,7 +294,7 @@
     } else {
       estado.textContent = cartoes.length === 1
         ? "1 achado"
-        : cartoes.length + " achados, do mais novo para o mais antigo";
+        : cartoes.length + " achados, " + LEGENDA_ORDEM[ordem.value];
     }
   }
 
@@ -259,6 +329,9 @@
           .map(criarCartao);
         maiorNumero = itens.reduce(function (m, i) { return Math.max(m, i.numero || 0); }, 0);
         lista.replaceChildren.apply(lista, cartoes.map(function (c) { return c.li; }));
+        contarFaixas();
+        lerFiltrosDoEndereco();
+        ordenar();
         lerEndereco();
         mostrar();
       })
@@ -284,6 +357,10 @@
     var botao = evento.target.closest("button");
     if (!botao) return;
     definirLimite(Number(botao.dataset.ate));
+    aoDigitar();
+  });
+  ordem.addEventListener("change", function () {
+    ordenar();
     aoDigitar();
   });
   acao.addEventListener("click", function () {
