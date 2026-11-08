@@ -14,9 +14,8 @@
   var acao = document.getElementById("acao");
   var secao = document.getElementById("achados");
   var filtros = document.getElementById("filtros");
-  var faixas = document.getElementById("faixas");
+  var precoSel = document.getElementById("preco");
   var categorias = document.getElementById("categorias");
-  var colecoes = document.getElementById("colecoes");
   var ordem = document.getElementById("ordem");
   var detalhe = document.getElementById("detalhe");
   var topo = document.getElementById("topo");
@@ -46,14 +45,14 @@
     nota: "das melhores notas para as menores",
   };
 
-  // Coleções prontas para usar em links (?colecao=natal). Só aparecem com 3 achados ou mais.
+  // Coleções para links na bio e no Telegram (?colecao=natal). Não ocupam espaço na tela:
+  // quando ativas, o texto do estado mostra o nome e o botão "Ver todos".
   var COLECOES = [
     { id: "natal", titulo: "Natal", palavras: /natal|pisca|papai noel|enfeite|presepio|guirlanda|arvore de/ },
     { id: "presentes", titulo: "Presentes até R$ 50", ate: 50, notaMinima: 4.7 },
     { id: "cozinha", titulo: "Cozinha", palavras: /cozinha|panela|faca|pote|copo|garrafa|talher|tabua|escorredor|mixer|batedor|chaleira|louca|xicara/ },
     { id: "ate-20", titulo: "Até R$ 20", ate: 20 },
   ];
-  var MINIMO_COLECAO = 3;
 
   var cartoes = [];
   var maiorNumero = 0;
@@ -170,14 +169,16 @@
 
   // ---------- cartões ----------
 
-  function blocoDePreco(item, alvo) {
+  function blocoDePreco(item, alvo, comDesconto) {
     if (!temPreco(item)) {
       alvo.append(elemento("p", "sem-preco", "Veja o preço na " + loja(item)));
       return;
     }
-    var linha = elemento("p", "preco", preco(item.preco));
-    if (item.desconto) linha.append(elemento("span", "desconto", "−" + item.desconto + "%"));
-    alvo.append(linha);
+    alvo.append(elemento("p", "preco", preco(item.preco)));
+    // A grade fica limpa; o desconto é dado da loja e aparece no painel, com a fonte.
+    if (comDesconto && item.desconto) {
+      alvo.append(elemento("p", "desconto-texto", "Desconto informado pela " + loja(item) + ": " + item.desconto + "%"));
+    }
     if (item.preco_antes) alvo.append(elemento("p", "antes", "Baixou de " + preco(item.preco_antes)));
   }
 
@@ -328,10 +329,11 @@
 
     var nome = elemento("h2", "", item.nome);
     nome.id = "detalhe-nome";
+    nome.tabIndex = -1;
     var info = elemento("div", "info");
     if (item.categoria) info.append(elemento("p", "categoria", item.categoria));
     info.append(nome);
-    blocoDePreco(item, info);
+    blocoDePreco(item, info, true);
     var dados = elemento("p", "dados");
     if (item.nota) dados.append(elemento("span", "estrelas", "★ " + String(item.nota).replace(".", ",")));
     if (item.vendas) dados.append(elemento("span", "", vendidos(item.vendas)));
@@ -374,6 +376,8 @@
     corpo.replaceChildren(moldura, info);
     if (typeof detalhe.showModal === "function") detalhe.showModal();
     else detalhe.setAttribute("open", "");
+    // Foco no nome: o leitor de tela lê o produto, e o X não abre já marcado.
+    nome.focus();
     medir("detalhe", { numero: item.numero });
   }
 
@@ -395,7 +399,6 @@
     definirLimite(0);
     definirCategoria("todas");
     colecaoAtiva = null;
-    pintarColecoes();
     ordem.value = "novos";
     ordenar();
     mostrar();
@@ -403,11 +406,7 @@
 
   function definirLimite(valor) {
     limitePreco = valor;
-    faixas.querySelectorAll("[data-ate]").forEach(function (b) {
-      var ativo = Number(b.dataset.ate) === valor;
-      b.setAttribute("aria-pressed", String(ativo));
-      if (ativo) mostrarBotao(b);
-    });
+    precoSel.value = String(valor);
   }
 
   function definirCategoria(valor) {
@@ -444,15 +443,14 @@
     botao.setAttribute("aria-label", rotulo + ", " + n + (n === 1 ? " achado" : " achados"));
   }
 
-  // Quantos achados há em cada faixa; faixa vazia some.
+  // Quantos achados há em cada faixa de preço; faixa vazia fica indisponível.
   function contarFaixas() {
-    faixas.querySelectorAll("[data-ate]").forEach(function (b) {
-      var ate = Number(b.dataset.ate);
-      var n = cartoes.filter(function (c) {
-        return !ate || (temPreco(c.item) && c.item.preco <= ate);
-      }).length;
-      rotular(b, n);
-      b.hidden = Boolean(ate) && n === 0;
+    Array.prototype.forEach.call(precoSel.options, function (o) {
+      var ate = Number(o.value);
+      if (!ate) return;
+      var n = cartoes.filter(function (c) { return temPreco(c.item) && c.item.preco <= ate; }).length;
+      o.textContent = "Até R$ " + ate + " (" + n + ")";
+      o.disabled = n === 0;
     });
   }
 
@@ -467,10 +465,11 @@
       if (b === "Outros") return -1;
       return nomes[b] - nomes[a] || a.localeCompare(b);
     });
-    var botoes = [botaoDeFiltro("Todas", "cat", "todas"), botaoDeFiltro("♥ Favoritos", "cat", "favoritos")];
+    var botoes = [botaoDeFiltro("Todas", "cat", "todas")];
     if (ordenadas.length >= 2) {
       ordenadas.forEach(function (nome) { botoes.push(botaoDeFiltro(nome, "cat", slug(nome))); });
     }
+    botoes.push(botaoDeFiltro("♥ Favoritos", "cat", "favoritos"));
     categorias.replaceChildren.apply(categorias, botoes);
     contarCategorias();
   }
@@ -500,35 +499,6 @@
     if (colecao.notaMinima && !((c.item.nota || 0) >= colecao.notaMinima)) return false;
     if (colecao.palavras && !colecao.palavras.test(c.chave)) return false;
     return !c.item.indisponivel;
-  }
-
-  function montarColecoes() {
-    var links = COLECOES.filter(function (col) {
-      return cartoes.filter(function (c) { return combinaColecao(c, col); }).length >= MINIMO_COLECAO;
-    }).map(function (col) {
-      var a = elemento("a", "", col.titulo);
-      a.href = "?colecao=" + col.id;
-      a.dataset.colecao = col.id;
-      a.addEventListener("click", function (evento) {
-        evento.preventDefault();
-        colecaoAtiva = colecaoAtiva === col ? null : col;
-        pintarColecoes();
-        medir("colecao", { id: col.id });
-        aoDigitar();
-      });
-      return a;
-    });
-    var titulo = elemento("span", "rotulo", "Coleções");
-    colecoes.replaceChildren.apply(colecoes, [titulo].concat(links));
-    colecoes.hidden = links.length === 0;
-    pintarColecoes();
-  }
-
-  function pintarColecoes() {
-    colecoes.querySelectorAll("[data-colecao]").forEach(function (a) {
-      if (colecaoAtiva && a.dataset.colecao === colecaoAtiva.id) a.setAttribute("aria-current", "true");
-      else a.removeAttribute("aria-current");
-    });
   }
 
   function ordenar() {
@@ -599,7 +569,6 @@
     var existe = cat && cat !== "favoritos" && categorias.querySelector('[data-cat="' + cat + '"]');
     definirCategoria(existe ? cat : "todas");
     colecaoAtiva = COLECOES.filter(function (c) { return c.id === p.get("colecao"); })[0] || null;
-    pintarColecoes();
   }
 
   function lerEndereco() {
@@ -662,7 +631,6 @@
     atualizarEndereco(exato ? exato.item.numero : null);
     definirAcao();
     filtros.hidden = !cartoes.length || numerico;
-    colecoes.hidden = numerico || !colecoes.querySelector("[data-colecao]");
     if (convite) {
       convite.hidden = Boolean(termo) || categoriaAtiva === "favoritos";
       posicionarConvite();
@@ -740,7 +708,6 @@
         lista.replaceChildren();
         contarFaixas();
         montarCategorias();
-        montarColecoes();
         lerFiltrosDoEndereco();
         ordenar();
         lerEndereco();
@@ -766,10 +733,8 @@
     mostrar();
     busca.focus();
   });
-  faixas.addEventListener("click", function (evento) {
-    var botao = evento.target.closest("button");
-    if (!botao) return;
-    definirLimite(Number(botao.dataset.ate));
+  precoSel.addEventListener("change", function () {
+    definirLimite(Number(precoSel.value));
     medir("filtro", { ate: limitePreco });
     aoDigitar();
   });
