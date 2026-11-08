@@ -194,22 +194,25 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
 }
 .achado {
+  position: relative; display: flex; flex-direction: column;
   background: var(--papel); border-radius: 1.1rem; overflow: hidden;
   /* O navegador não desenha o que está longe da tela. */
-  content-visibility: auto; contain-intrinsic-size: auto 23rem;
+  content-visibility: auto; contain-intrinsic-size: auto 25rem;
 }
-.achado[hidden] { display: none; }
+.achado[hidden], .convite[hidden] { display: none; }
 .achado.molde { aspect-ratio: 10 / 16; }
-.achado a {
-  display: flex; flex-direction: column; height: 100%; padding-bottom: 0.9rem;
+/* O cartão abre o painel de detalhes; "Ver oferta" leva direto à loja. */
+.abrir {
+  display: flex; flex-direction: column; flex: 1; width: 100%; padding: 0 0 0.2rem;
   color: inherit; text-decoration: none;
 }
-.achado a:active { transform: scale(0.98); transition: transform 100ms ease-out; }
-.achado a:focus-visible { outline-offset: -3px; border-radius: 1.1rem; }
+.abrir:active { transform: scale(0.98); transition: transform 100ms ease-out; }
+.abrir:focus-visible { outline-offset: -3px; border-radius: 1.1rem; }
 
 /* As fotos dos anúncios têm fundo branco: a moldura branca as mantém iguais no modo escuro. */
 .foto { position: relative; background: #fff; }
 .foto img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
+.fora .foto img { filter: grayscale(1); opacity: 0.6; }
 
 .selo {
   position: absolute; top: 0.5rem; left: 0.5rem;
@@ -227,6 +230,48 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   background: #1f1a17; color: var(--etiqueta); border: 2px solid #fff; border-radius: 999px;
   font-size: 0.8rem; line-height: 1.3; font-weight: 700; letter-spacing: 0.01em;
 }
+.novo.aviso-fora { color: #fff; }
+.tem-video {
+  position: absolute; bottom: 0.5rem; left: 0.5rem; padding: 0.15rem 0.55rem;
+  background: #1f1a17; color: #fff; border: 2px solid #fff; border-radius: 999px;
+  font-size: 0.75rem; line-height: 1.3; font-weight: 700;
+}
+
+.achado h3 {
+  margin: 0.7rem 0.8rem 0; font-size: 0.92rem; line-height: 1.3; font-weight: 500;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.preco { font: 400 1.6rem/1.15 var(--display); color: var(--link); }
+.achado .preco { margin: 0.4rem 0.8rem 0; }
+.desconto {
+  display: inline-block; margin-left: 0.45rem; padding: 0.1rem 0.4rem; vertical-align: 0.3em;
+  background: var(--etiqueta); color: #1f1a17; border-radius: 0.4rem;
+  font: 700 0.78rem/1.3 system-ui, sans-serif;
+}
+.antes { margin: 0.1rem 0.8rem 0; color: var(--tinta-suave); font-size: 0.8rem; font-weight: 600; }
+.achado .sem-preco { margin: 0.4rem 0.8rem 0; color: var(--link); font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
+.achado.destaque .sem-preco { margin: 0.6rem 1.1rem 0; font-size: 1.25rem; }
+.dados {
+  display: flex; flex-wrap: wrap; gap: 0 0.6rem; margin: 0.2rem 0.8rem 0;
+  color: var(--tinta-suave); font-size: 0.8rem; line-height: 1.4;
+}
+.estrelas { color: var(--tinta); font-weight: 600; }
+.quando, .visto { flex-basis: 100%; }
+.visto { font-style: italic; }
+
+.acoes { display: flex; align-items: center; justify-content: space-between; gap: 0.25rem; margin: auto 0.4rem 0.35rem 0.8rem; }
+.achado .ir {
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  color: var(--link); font-size: 0.9rem; font-weight: 700; text-decoration: none;
+}
+.fav {
+  flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--tinta-suave); cursor: pointer;
+}
+.fav svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 2; }
+.fav[aria-pressed="true"] { color: #e0245e; }
+.fav[aria-pressed="true"] svg { fill: currentColor; }
+.fav:active { transform: scale(0.9); }
 
 /* Só aparece no achado em destaque. */
 .compartilhar { display: none; }
@@ -237,29 +282,13 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 }
 .achado.destaque .compartilhar:active { transform: scale(0.97); }
 
-.achado h3 {
-  margin: 0.7rem 0.8rem 0; font-size: 0.92rem; line-height: 1.3; font-weight: 500;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-.achado .preco { margin: 0.4rem 0.8rem 0; font: 400 1.6rem/1.15 var(--display); color: var(--link); }
-.achado .sem-preco { margin: 0.4rem 0.8rem 0; color: var(--link); font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
-.achado.destaque .sem-preco { margin: 0.6rem 1.1rem 0; font-size: 1.25rem; }
-.achado .dados {
-  display: flex; flex-wrap: wrap; gap: 0 0.6rem; margin: 0.2rem 0.8rem 0;
-  color: var(--tinta-suave); font-size: 0.8rem; line-height: 1.4;
-}
-.achado .estrelas { color: var(--tinta); font-weight: 600; }
-.achado .quando { flex-basis: 100%; }
-.achado .ir { margin: auto 0.8rem 0; padding-top: 0.5rem; color: var(--link); font-size: 0.9rem; font-weight: 700; }
-
 @media (hover: hover) {
-  .achado a:hover .ir { text-decoration: underline; text-underline-offset: 0.2em; }
-  .achado a:hover h3 { color: var(--link); }
+  .achado .ir:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .abrir:hover h3 { color: var(--link); }
 }
 
 /* Digitou o número certo: o achado toma a tela e o botão de compra aparece grande. */
-.achado.destaque { position: relative; grid-column: 1 / -1; content-visibility: visible; }
-.achado.destaque a { height: auto; padding-bottom: 0.25rem; }
+.achado.destaque { grid-column: 1 / -1; content-visibility: visible; }
 .achado.destaque .selo {
   top: 0.8rem; left: 0.8rem; padding: 0.35rem 1rem 0.35rem 1.9rem; font-size: 2rem;
   border-radius: 0.4rem 1.1rem 1.1rem 0.4rem;
@@ -268,22 +297,117 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 }
 .achado.destaque h3 { margin: 1rem 1.1rem 0; font-size: 1.15rem; -webkit-line-clamp: 4; }
 .achado.destaque .preco { margin: 0.6rem 1.1rem 0; font-size: 3rem; }
+.achado.destaque .antes { margin: 0.2rem 1.1rem 0; font-size: 0.95rem; }
 .achado.destaque .dados { margin: 0.3rem 1.1rem 0; font-size: 0.95rem; }
+.achado.destaque .acoes { margin: 1.1rem 1.1rem 0.5rem; gap: 0.5rem; }
 .achado.destaque .ir {
-  margin: 1.1rem 1.1rem 0.25rem; padding: 0.95rem; border-radius: 999px; text-align: center;
+  flex: 1; justify-content: center; padding: 0.95rem; border-radius: 999px;
   background: var(--laranja); color: #fff; font-size: 1.05rem;
+}
+
+/* Convite do Telegram no meio da lista. */
+.convite {
+  grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem;
+  padding: 1.1rem 1.2rem; border: 2px dashed var(--linha); border-radius: 1.1rem;
+}
+.convite p { margin: 0; color: var(--tinta-suave); font-size: 0.92rem; line-height: 1.4; }
+.convite .titulo { color: var(--tinta); font-size: 1.05rem; font-weight: 700; }
+.convite a {
+  display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 0.4rem; padding: 0 1.2rem;
+  border-radius: 999px; background: var(--laranja); color: #fff; font-weight: 700; text-decoration: none;
 }
 
 @media (min-width: 46rem) {
   .grade-achados { gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); }
-  .achado.destaque a {
+  .achado.destaque .abrir {
     display: grid; grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
-    grid-template-rows: auto auto auto 1fr; column-gap: 1rem; padding-bottom: 0;
+    grid-template-rows: auto auto auto auto 1fr; column-gap: 1rem; padding-bottom: 0;
   }
-  .achado.destaque .foto { grid-row: 1 / 5; }
+  .achado.destaque .foto { grid-row: 1 / 6; }
+  /* Reserva o espaço dos botões, que ficam na coluna do texto, embaixo. */
+  .achado.destaque .dados { margin-bottom: 6rem; }
   .achado.destaque h3 { margin-top: 1.5rem; font-size: 1.4rem; }
-  .achado.destaque .ir { align-self: end; justify-self: start; margin-bottom: 1.5rem; padding-inline: 2.5rem; }
+  .achado.destaque .acoes {
+    position: absolute; left: calc(min(24rem, 50%) + 2.1rem); right: 11rem; bottom: 1.5rem; margin: 0;
+  }
+  .achado.destaque .ir { flex: 0 1 auto; padding-inline: 2.5rem; }
   .achado.destaque .compartilhar { position: absolute; right: 1.1rem; bottom: 1.6rem; width: auto; margin: 0; padding-inline: 1.25rem; }
+}
+
+/* ---------- como funciona, coleções, voltar ao topo ---------- */
+
+.passos {
+  list-style: none; margin: 1.1rem 0 0; padding: 0;
+  display: grid; gap: 0.5rem; grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.passos li {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.7rem;
+  background: var(--papel); border-radius: 0.9rem; color: var(--tinta-suave); font-size: 0.82rem; line-height: 1.25;
+}
+.passos span {
+  flex: none; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 999px;
+  background: var(--etiqueta); color: #1f1a17; font: 400 1rem/1 var(--display);
+}
+
+.colecoes {
+  display: flex; align-items: center; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
+  padding: 6px; margin: -6px -6px 0.9rem;
+}
+.colecoes::-webkit-scrollbar { display: none; }
+.colecoes[hidden] { display: none; }
+.colecoes .rotulo { flex: none; color: var(--tinta-suave); font-size: 0.85rem; }
+.colecoes a {
+  flex: none; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.95rem;
+  border: 0; border-radius: 999px; background: var(--papel); color: var(--tinta);
+  font-size: 0.88rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+}
+.colecoes a[aria-current] { background: var(--etiqueta); color: #1f1a17; }
+#categorias { flex-basis: 100%; }
+
+.topo {
+  position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 5;
+  display: grid; place-items: center; width: 3rem; height: 3rem;
+  border: 0; border-radius: 999px; background: var(--tinta); color: var(--papel);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.25); cursor: pointer;
+}
+.topo[hidden] { display: none; }
+.topo svg { width: 1.3rem; height: 1.3rem; }
+
+/* ---------- painel de detalhes ---------- */
+
+.detalhe {
+  width: min(100% - 1.5rem, 50rem); max-height: calc(100% - 1.5rem); padding: 0; border: 0;
+  border-radius: 1.25rem; background: var(--papel); color: var(--tinta); overflow: auto;
+}
+.detalhe::backdrop { background: rgb(0 0 0 / 0.6); }
+.detalhe .fechar {
+  position: sticky; top: 0.6rem; float: right; z-index: 2; margin: 0.6rem 0.6rem -3.35rem 0;
+  display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
+  border: 2px solid #fff; border-radius: 999px; background: #1f1a17; color: #fff; cursor: pointer;
+}
+.detalhe .fechar svg { width: 1.2rem; height: 1.2rem; }
+.detalhe .info { padding: 1rem 1.2rem 1.4rem; }
+.detalhe h2 { margin: 0.2rem 0 0.5rem; font-size: 1.15rem; line-height: 1.3; font-weight: 600; }
+.detalhe .categoria { margin: 0; color: var(--tinta-suave); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.detalhe .preco { margin: 0; font-size: 2.4rem; }
+.detalhe .antes, .detalhe .dados { margin: 0.2rem 0 0; font-size: 0.9rem; }
+.detalhe .sem-preco { margin: 0; color: var(--link); font-weight: 700; }
+.aviso-preco, .aviso-fora-texto { margin: 0.8rem 0 0; color: var(--tinta-suave); font-size: 0.85rem; line-height: 1.45; }
+.detalhe .botoes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.detalhe .comprar {
+  flex: 1 1 100%; padding: 0.95rem; border-radius: 999px; text-align: center;
+  background: var(--laranja); color: #fff; font-weight: 700; font-size: 1.05rem; text-decoration: none;
+}
+.detalhe .video, .detalhe .fav-texto {
+  flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: 0 1rem;
+  border: 0; border-radius: 999px; background: var(--fundo); color: var(--tinta);
+  font: inherit; font-size: 0.92rem; font-weight: 600; text-decoration: none; cursor: pointer;
+}
+.detalhe .fav-texto[aria-pressed="true"] { color: #e0245e; }
+@media (min-width: 46rem) {
+  .detalhe .corpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .detalhe .info { padding: 1.5rem 1.5rem 1.5rem 0.5rem; }
+  .detalhe h2 { font-size: 1.35rem; }
 }
 
 /* ---------- canais e transparência ---------- */
@@ -308,7 +432,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .transparencia strong { display: block; color: var(--tinta); font-weight: 600; }
 
 @media (prefers-contrast: more) {
-  .achado, .canais a { border: 2px solid var(--tinta); }
+  .achado, .canais a, .passos li { border: 2px solid var(--tinta); }
   .etiqueta-busca { box-shadow: inset 0 0 0 2px #1f1a17; }
 }
 
