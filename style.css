@@ -157,7 +157,15 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .botao-leve[hidden] { display: none; }
 .botao-leve:active { transform: scale(0.97); }
 
-.filtros { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 0.8rem; }
+/* Barra da lista numa grade: no celular, contagem, categorias e os dois seletores empilhados;
+   no computador, contagem à esquerda e seletores à direita, categorias na linha de baixo. */
+.barra-lista {
+  display: grid; grid-template-columns: minmax(0, 1fr); align-items: center;
+  grid-template-areas: "estado" "cats" "seletores"; gap: 0.5rem 1rem; margin-bottom: 0.75rem;
+}
+.barra-lista .estado-linha { grid-area: estado; margin-bottom: 0; }
+/* Os filhos de #filtros entram direto na grade; escondido, some tudo. */
+.filtros { display: contents; }
 .filtros[hidden] { display: none; }
 /* No celular, as faixas rolam de lado em vez de quebrar em duas linhas. */
 .faixas {
@@ -187,7 +195,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   /* O navegador não desenha o que está longe da tela. */
   content-visibility: auto; contain-intrinsic-size: auto 25rem;
 }
-.achado[hidden], .convite[hidden] { display: none; }
+.achado[hidden] { display: none; }
 .achado.molde { aspect-ratio: 10 / 16; }
 /* O cartão abre o painel de detalhes; "Ver oferta" leva direto à loja. */
 .abrir {
@@ -295,18 +303,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   background: var(--laranja); color: #fff; font-size: 1.05rem;
 }
 
-/* Convite do Telegram no meio da lista. */
-.convite {
-  grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem;
-  padding: 1.1rem 1.2rem; border: 2px dashed var(--linha); border-radius: 1.1rem;
-}
-.convite p { margin: 0; color: var(--tinta-suave); font-size: 0.92rem; line-height: 1.4; }
-.convite .titulo { color: var(--tinta); font-size: 1.05rem; font-weight: 700; }
-.convite a {
-  display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 0.4rem; padding: 0 1.2rem;
-  border-radius: 999px; background: var(--laranja); color: #fff; font-weight: 700; text-decoration: none;
-}
-
 @media (min-width: 46rem) {
   .grade-achados { gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); }
   .achado.destaque .abrir {
@@ -328,23 +324,24 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 .dica { margin: 0.9rem 0 0; color: var(--tinta-suave); font-size: 0.88rem; line-height: 1.4; }
 
-/* Categorias rolam de lado; preço e ordem são dois seletores compactos ao lado (ou abaixo). */
-#categorias { flex: 1 1 100%; }
-.seletores { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.seta { position: relative; display: inline-flex; }
+#categorias { grid-area: cats; }
+.seletores { grid-area: seletores; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem; }
+.seta { position: relative; display: flex; }
 .seta::after {
   content: ""; position: absolute; right: 1rem; top: 50%; width: 0.45rem; height: 0.45rem; pointer-events: none;
   border-right: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); transform: translateY(-70%) rotate(45deg);
 }
 .seletores select {
-  appearance: none; -webkit-appearance: none;
+  appearance: none; -webkit-appearance: none; width: 100%;
   min-height: 2.75rem; padding: 0 2.5rem 0 1rem; border: 0; border-radius: 999px;
   background: var(--papel); color: var(--tinta); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
 }
 @media (min-width: 46rem) {
+  .barra-lista { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "estado seletores" "cats cats"; }
+  .seletores { display: flex; }
+  .seletores select { width: auto; min-width: 11.5rem; }
   /* No computador não há barra de rolagem à vista: as categorias quebram linha. */
-  #categorias { flex: 1 1 0; flex-wrap: wrap; overflow: visible; }
-  .seletores { flex: none; align-self: flex-start; }
+  #categorias { flex-wrap: wrap; overflow: visible; }
 }
 
 .topo {

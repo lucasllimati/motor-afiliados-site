@@ -24,8 +24,6 @@
   var FAIXAS = [20, 30, 50];
   var DIAS_DE_NOVO = 1; // hoje e ontem
   var ESPERA_FOTO_MS = 450; // quem digita "12" passa pelo "1": só baixa a foto grande ao parar
-  var CONVITE_DEPOIS_DE = 8;
-  var TELEGRAM = "https://t.me/achadinhospicks";
   var LOJAS = { shopee: "Shopee", amazon: "Amazon" };
   var MESES = ["jan.", "fev.", "mar.", "abr.", "maio", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
 
@@ -62,7 +60,6 @@
   var colecaoAtiva = null;
   var aoAgir = null;
   var timerFoto = null;
-  var convite = null;
   var favoritos = lerGuardado("achados:favoritos");
   var vistos = lerGuardado("achados:vistos");
 
@@ -508,43 +505,7 @@
       return (a.item.indisponivel ? 1 : 0) - (b.item.indisponivel ? 1 : 0) ||
         comparar(a, b) || b.item.numero - a.item.numero;
     });
-    var itens = ordenados.map(function (c) { return c.li; });
-    if (convite) itens.splice(Math.min(CONVITE_DEPOIS_DE, itens.length), 0, convite);
-    lista.append.apply(lista, itens);
-  }
-
-  function colunas() {
-    return getComputedStyle(lista).gridTemplateColumns.split(" ").filter(Boolean).length || 1;
-  }
-
-  // O convite ocupa a linha inteira: entra depois de uma linha completa de achados visíveis,
-  // senão a linha de cima fica pela metade (no computador são 5 colunas).
-  function posicionarConvite() {
-    if (!convite || convite.hidden) return;
-    var cols = colunas();
-    var depois = Math.ceil(CONVITE_DEPOIS_DE / cols) * cols;
-    var visiveis = Array.prototype.filter.call(lista.children, function (li) {
-      return li !== convite && !li.hidden;
-    });
-    if (visiveis.length <= depois) {
-      convite.hidden = true;
-      return;
-    }
-    visiveis[depois - 1].after(convite);
-  }
-
-  function criarConvite() {
-    var li = elemento("li", "convite");
-    li.append(
-      elemento("p", "titulo", "Quer receber os próximos achados?"),
-      elemento("p", "", "Cada achado novo chega no canal do Telegram, com foto e link.")
-    );
-    var a = elemento("a", "", "Entrar no canal");
-    a.href = TELEGRAM;
-    a.rel = "noopener";
-    a.addEventListener("click", function () { medir("telegram", { origem: "lista" }); });
-    li.append(a);
-    return li;
+    lista.append.apply(lista, ordenados.map(function (c) { return c.li; }));
   }
 
   // ---------- endereço ----------
@@ -631,10 +592,6 @@
     atualizarEndereco(exato ? exato.item.numero : null);
     definirAcao();
     filtros.hidden = !cartoes.length || numerico;
-    if (convite) {
-      convite.hidden = Boolean(termo) || categoriaAtiva === "favoritos";
-      posicionarConvite();
-    }
 
     var filtrado = limitePreco || categoriaAtiva !== "todas" || colecaoAtiva;
     var sufixo = (colecaoAtiva ? " na coleção " + colecaoAtiva.titulo : "") +
@@ -704,7 +661,6 @@
           .map(criarCartao);
         cartoes.forEach(function (c) { pintarFavorito(c); pintarVisto(c); });
         maiorNumero = itens.reduce(function (m, i) { return Math.max(m, i.numero || 0); }, 0);
-        convite = cartoes.length > CONVITE_DEPOIS_DE ? criarConvite() : null;
         lista.replaceChildren();
         contarFaixas();
         montarCategorias();
@@ -761,13 +717,6 @@
   window.addEventListener("hashchange", function () {
     lerEndereco();
     mostrar();
-  });
-
-  // Girar o celular ou mudar a janela muda as colunas: o convite volta a fechar uma linha.
-  var timerColunas = null;
-  window.addEventListener("resize", function () {
-    clearTimeout(timerColunas);
-    timerColunas = setTimeout(posicionarConvite, 150);
   });
 
   // Voltar ao topo: aparece depois de duas telas de rolagem (conta leve: roda a cada rolagem).
