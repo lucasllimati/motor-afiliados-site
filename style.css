@@ -165,6 +165,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   overflow-x: auto; scrollbar-width: none; padding: 6px; margin: -6px; /* folga para o contorno de foco */
 }
 .faixas::-webkit-scrollbar { display: none; }
+.faixas[hidden] { display: none; }
 .faixas button {
   flex: none; white-space: nowrap;
   min-height: 2.75rem; padding: 0 1rem; border: 0; border-radius: 999px;
@@ -284,7 +285,8 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 @media (hover: hover) {
   .achado .ir:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-  .abrir:hover h3 { color: var(--link); }
+  /* Destaque no cartão inteiro, sem pintar o nome: o título não deve parecer um link. */
+  .achado:hover { box-shadow: 0 0 0 2px var(--linha); }
 }
 
 /* Digitou o número certo: o achado toma a tela e o botão de compra aparece grande. */
