@@ -543,6 +543,26 @@
     lista.append.apply(lista, itens);
   }
 
+  function colunas() {
+    return getComputedStyle(lista).gridTemplateColumns.split(" ").filter(Boolean).length || 1;
+  }
+
+  // O convite ocupa a linha inteira: entra depois de uma linha completa de achados visíveis,
+  // senão a linha de cima fica pela metade (no computador são 5 colunas).
+  function posicionarConvite() {
+    if (!convite || convite.hidden) return;
+    var cols = colunas();
+    var depois = Math.ceil(CONVITE_DEPOIS_DE / cols) * cols;
+    var visiveis = Array.prototype.filter.call(lista.children, function (li) {
+      return li !== convite && !li.hidden;
+    });
+    if (visiveis.length <= depois) {
+      convite.hidden = true;
+      return;
+    }
+    visiveis[depois - 1].after(convite);
+  }
+
   function criarConvite() {
     var li = elemento("li", "convite");
     li.append(
@@ -643,7 +663,10 @@
     definirAcao();
     filtros.hidden = !cartoes.length || numerico;
     colecoes.hidden = numerico || !colecoes.querySelector("[data-colecao]");
-    if (convite) convite.hidden = Boolean(termo) || categoriaAtiva === "favoritos" || visiveis <= CONVITE_DEPOIS_DE;
+    if (convite) {
+      convite.hidden = Boolean(termo) || categoriaAtiva === "favoritos";
+      posicionarConvite();
+    }
 
     var filtrado = limitePreco || categoriaAtiva !== "todas" || colecaoAtiva;
     var sufixo = (colecaoAtiva ? " na coleção " + colecaoAtiva.titulo : "") +
@@ -773,6 +796,13 @@
   window.addEventListener("hashchange", function () {
     lerEndereco();
     mostrar();
+  });
+
+  // Girar o celular ou mudar a janela muda as colunas: o convite volta a fechar uma linha.
+  var timerColunas = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(timerColunas);
+    timerColunas = setTimeout(posicionarConvite, 150);
   });
 
   // Voltar ao topo: aparece depois de duas telas de rolagem (conta leve: roda a cada rolagem).
