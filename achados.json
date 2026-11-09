@@ -1,6 +1,91 @@
 {
- "atualizado_em": "2026-11-08T23:37:13+00:00",
+ "atualizado_em": "2026-11-09T11:37:41+00:00",
  "itens": [
+  {
+   "categoria": "Casa e cozinha",
+   "data": "2026-11-09",
+   "desconto": 50,
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820l7-msdnnzmmtpfp25",
+   "indisponivel": false,
+   "link": "https://s.shopee.com.br/2qW0ELbviF",
+   "nome": "ROMANTIC CROWN Copo Térmico Portátil 1200ml/600ml com Tampa e Canudo Garrafa Térmica Inoxidável À prova de vazamentos",
+   "nota": 5.0,
+   "numero": 48,
+   "plataforma": "shopee",
+   "preco": 34.98,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 3475,
+   "video": null
+  },
+  {
+   "categoria": "Casa e cozinha",
+   "data": "2026-11-09",
+   "desconto": 69,
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820la-moe8i4uckd8jec",
+   "indisponivel": false,
+   "link": "https://s.shopee.com.br/6L5sOmOC2W",
+   "nome": "Kit Pastilhas Efervescentes para Máquina de Lavar – Remove Mau Cheiro, Resíduos e Sujeira",
+   "nota": 4.7,
+   "numero": 47,
+   "plataforma": "shopee",
+   "preco": 10.99,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 3803,
+   "video": null
+  },
+  {
+   "categoria": "Casa e cozinha",
+   "data": "2026-11-09",
+   "desconto": 60,
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820lg-mtw3amr9o4xu08",
+   "indisponivel": false,
+   "link": "https://s.shopee.com.br/4VeEDPVeaz",
+   "nome": "Projetor LED Natalino 16 Temas Luzes de Natal Desenhos Coloridos Rotação 270° Decoração Casa Jardim Parede Festa",
+   "nota": 4.7,
+   "numero": 46,
+   "plataforma": "shopee",
+   "preco": 39.88,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 4491,
+   "video": null
+  },
+  {
+   "categoria": "Casa e cozinha",
+   "data": "2026-11-09",
+   "desconto": 51,
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-820l8-mpwlcsd38hz589",
+   "indisponivel": false,
+   "link": "https://s.shopee.com.br/4fxePiUslM",
+   "nome": "Garrafa Térmica Cabo Madeira Para Café 1l",
+   "nota": 4.8,
+   "numero": 45,
+   "plataforma": "shopee",
+   "preco": 39.49,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 5553,
+   "video": null
+  },
+  {
+   "categoria": "Casa e cozinha",
+   "data": "2026-11-09",
+   "desconto": 84,
+   "imagem": "https://cf.shopee.com.br/file/br-11134207-81z1k-mg45udk2lyio40",
+   "indisponivel": false,
+   "link": "https://s.shopee.com.br/BVF3RlfYp",
+   "nome": "Kit 10 Petisqueira Barquinha Canoa Petiscos Churrasco Festa Frios Para Servir Amendoim Caldo Branca",
+   "nota": 4.8,
+   "numero": 44,
+   "plataforma": "shopee",
+   "preco": 18.94,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 8551,
+   "video": null
+  },
   {
    "categoria": "Casa e cozinha",
    "data": "2026-11-08",
@@ -14,8 +99,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 4531,
+   "preco_em": "2026-11-09",
+   "vendas": 4387,
    "video": null
   },
   {
@@ -31,8 +116,8 @@
    "plataforma": "shopee",
    "preco": 14.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 7488,
+   "preco_em": "2026-11-09",
+   "vendas": 7292,
    "video": null
   },
   {
@@ -48,8 +133,8 @@
    "plataforma": "shopee",
    "preco": 19.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 4468,
+   "preco_em": "2026-11-09",
+   "vendas": 4486,
    "video": null
   },
   {
@@ -65,8 +150,8 @@
    "plataforma": "shopee",
    "preco": 32.5,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 7496,
+   "preco_em": "2026-11-09",
+   "vendas": 7483,
    "video": null
   },
   {
@@ -99,8 +184,8 @@
    "plataforma": "shopee",
    "preco": 58.97,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 13736,
+   "preco_em": "2026-11-09",
+   "vendas": 13602,
    "video": null
   },
   {
@@ -167,8 +252,8 @@
    "plataforma": "shopee",
    "preco": 19.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 19176,
+   "preco_em": "2026-11-09",
+   "vendas": 18820,
    "video": null
   },
   {
@@ -201,8 +286,8 @@
    "plataforma": "shopee",
    "preco": 15.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 19671,
+   "preco_em": "2026-11-09",
+   "vendas": 19560,
    "video": null
   },
   {
@@ -235,8 +320,8 @@
    "plataforma": "shopee",
    "preco": 16.49,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 60286,
+   "preco_em": "2026-11-09",
+   "vendas": 59381,
    "video": null
   },
   {
@@ -354,14 +439,14 @@
    "plataforma": "shopee",
    "preco": 24.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5893,
+   "preco_em": "2026-11-09",
+   "vendas": 5831,
    "video": null
   },
   {
    "categoria": "Esportes",
    "data": "2026-11-08",
-   "desconto": 42,
+   "desconto": 44,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820mb-mt9tda38xybn91",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/60SxTyYV3b",
@@ -369,10 +454,10 @@
    "nota": 4.8,
    "numero": 22,
    "plataforma": "shopee",
-   "preco": 30.8,
-   "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5906,
+   "preco": 27.8,
+   "preco_antes": 30.8,
+   "preco_em": "2026-11-09",
+   "vendas": 5852,
    "video": null
   },
   {
@@ -388,8 +473,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5705,
+   "preco_em": "2026-11-09",
+   "vendas": 5779,
    "video": null
   },
   {
@@ -405,8 +490,8 @@
    "plataforma": "shopee",
    "preco": 49.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5493,
+   "preco_em": "2026-11-09",
+   "vendas": 5326,
    "video": null
   },
   {
@@ -422,14 +507,14 @@
    "plataforma": "shopee",
    "preco": 49.0,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5557,
+   "preco_em": "2026-11-09",
+   "vendas": 5533,
    "video": null
   },
   {
    "categoria": "Outros",
    "data": "2026-11-08",
-   "desconto": 34,
+   "desconto": 31,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-7r98o-lsmu3092h72l8b",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/2Vt5JXqIC8",
@@ -437,10 +522,10 @@
    "nota": 4.9,
    "numero": 18,
    "plataforma": "shopee",
-   "preco": 22.9,
-   "preco_antes": 23.95,
-   "preco_em": "2026-11-08",
-   "vendas": 7743,
+   "preco": 23.95,
+   "preco_antes": null,
+   "preco_em": "2026-11-09",
+   "vendas": 7783,
    "video": null
   },
   {
@@ -456,8 +541,8 @@
    "plataforma": "shopee",
    "preco": 42.89,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 5889,
+   "preco_em": "2026-11-09",
+   "vendas": 5823,
    "video": null
   },
   {
@@ -473,14 +558,14 @@
    "plataforma": "shopee",
    "preco": 42.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 7485,
+   "preco_em": "2026-11-09",
+   "vendas": 7423,
    "video": null
   },
   {
    "categoria": "Casa e cozinha",
    "data": "2026-11-07",
-   "desconto": 74,
+   "desconto": 70,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820le-mtrha87hqgoydd",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/1qdOWJsLkw",
@@ -488,10 +573,10 @@
    "nota": 4.9,
    "numero": 15,
    "plataforma": "shopee",
-   "preco": 25.99,
+   "preco": 29.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 6607,
+   "preco_em": "2026-11-09",
+   "vendas": 6630,
    "video": null
   },
   {
@@ -507,8 +592,8 @@
    "plataforma": "shopee",
    "preco": 19.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 11762,
+   "preco_em": "2026-11-09",
+   "vendas": 11533,
    "video": null
   },
   {
@@ -524,8 +609,8 @@
    "plataforma": "shopee",
    "preco": 16.0,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 13067,
+   "preco_em": "2026-11-09",
+   "vendas": 13380,
    "video": null
   },
   {
@@ -539,10 +624,10 @@
    "nota": 4.8,
    "numero": 12,
    "plataforma": "shopee",
-   "preco": 36.08,
+   "preco": 36.19,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 15706,
+   "preco_em": "2026-11-09",
+   "vendas": 15729,
    "video": null
   },
   {
@@ -558,8 +643,8 @@
    "plataforma": "shopee",
    "preco": 34.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 10969,
+   "preco_em": "2026-11-09",
+   "vendas": 10934,
    "video": null
   },
   {
@@ -575,8 +660,8 @@
    "plataforma": "shopee",
    "preco": 20.47,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 8348,
+   "preco_em": "2026-11-09",
+   "vendas": 7903,
    "video": null
   },
   {
@@ -592,8 +677,8 @@
    "plataforma": "shopee",
    "preco": 41.54,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 11434,
+   "preco_em": "2026-11-09",
+   "vendas": 11400,
    "video": null
   },
   {
@@ -609,8 +694,8 @@
    "plataforma": "shopee",
    "preco": 48.39,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 9940,
+   "preco_em": "2026-11-09",
+   "vendas": 9888,
    "video": null
   },
   {
@@ -626,8 +711,8 @@
    "plataforma": "shopee",
    "preco": 19.98,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 10688,
+   "preco_em": "2026-11-09",
+   "vendas": 10607,
    "video": null
   },
   {
@@ -643,8 +728,8 @@
    "plataforma": "shopee",
    "preco": 39.96,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 11400,
+   "preco_em": "2026-11-09",
+   "vendas": 11122,
    "video": null
   },
   {
@@ -660,8 +745,8 @@
    "plataforma": "shopee",
    "preco": 28.85,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 12517,
+   "preco_em": "2026-11-09",
+   "vendas": 12221,
    "video": null
   },
   {
@@ -677,8 +762,8 @@
    "plataforma": "shopee",
    "preco": 34.65,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 15795,
+   "preco_em": "2026-11-09",
+   "vendas": 15250,
    "video": null
   },
   {
@@ -694,8 +779,8 @@
    "plataforma": "shopee",
    "preco": 28.99,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 14273,
+   "preco_em": "2026-11-09",
+   "vendas": 14322,
    "video": null
   },
   {
@@ -711,8 +796,8 @@
    "plataforma": "shopee",
    "preco": 18.69,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 15197,
+   "preco_em": "2026-11-09",
+   "vendas": 14945,
    "video": null
   },
   {
@@ -728,8 +813,8 @@
    "plataforma": "shopee",
    "preco": 16.9,
    "preco_antes": null,
-   "preco_em": "2026-11-08",
-   "vendas": 13339,
+   "preco_em": "2026-11-09",
+   "vendas": 12595,
    "video": null
   }
  ]
