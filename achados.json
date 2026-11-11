@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-11T11:37:46+00:00",
+ "atualizado_em": "2026-11-11T23:07:17+00:00",
  "itens": [
   {
    "categoria": "Casa e cozinha",
@@ -84,23 +84,6 @@
    "preco_antes": null,
    "preco_em": "2026-11-11",
    "vendas": 11440,
-   "video": null
-  },
-  {
-   "categoria": "Casa e cozinha",
-   "data": "2026-11-10",
-   "desconto": 45,
-   "imagem": "https://cf.shopee.com.br/file/br-11134207-820m9-mr7oweocldl204",
-   "indisponivel": false,
-   "link": "https://s.shopee.com.br/1gK4R62OeA",
-   "nome": "Chaleira Elétrica Jarra Café Chá Inox 110v",
-   "nota": 4.9,
-   "numero": 53,
-   "plataforma": "shopee",
-   "preco": 38.99,
-   "preco_antes": 44.9,
-   "preco_em": "2026-11-11",
-   "vendas": 3490,
    "video": null
   },
   {
