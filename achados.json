@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-16T11:07:54+00:00",
+ "atualizado_em": "2026-11-16T23:07:17+00:00",
  "itens": [
   {
    "categoria": "Eletrônicos",
@@ -48,8 +48,8 @@
    "plataforma": "shopee",
    "preco": 29.25,
    "preco_antes": null,
-   "preco_em": "2026-11-15",
-   "vendas": 2348,
+   "preco_em": "2026-11-16",
+   "vendas": 2419,
    "video": null
   },
   {
@@ -71,7 +71,7 @@
   },
   {
    "categoria": "Eletrônicos",
-   "data": "2026-11-14",
+   "data": "2026-11-16",
    "desconto": 9,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-7r98o-lm7i8jl0k6wm07",
    "indisponivel": true,
@@ -88,7 +88,7 @@
   },
   {
    "categoria": "Beleza",
-   "data": "2026-11-14",
+   "data": "2026-11-16",
    "desconto": 67,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-7r98o-mbh1jysdwd0i68",
    "indisponivel": false,
@@ -105,7 +105,7 @@
   },
   {
    "categoria": "Casa e cozinha",
-   "data": "2026-11-14",
+   "data": "2026-11-16",
    "desconto": 48,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820l9-mn1uzb42hx4yd8",
    "indisponivel": false,
@@ -122,7 +122,7 @@
   },
   {
    "categoria": "Casa e cozinha",
-   "data": "2026-11-14",
+   "data": "2026-11-16",
    "desconto": 52,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820mg-mnxpmvljjwucb8",
    "indisponivel": false,
@@ -139,7 +139,7 @@
   },
   {
    "categoria": "Casa e cozinha",
-   "data": "2026-11-14",
+   "data": "2026-11-16",
    "desconto": 41,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-81z1k-mdyvmiiv7j7l50",
    "indisponivel": false,
@@ -320,8 +320,8 @@
    "plataforma": "shopee",
    "preco": 16.99,
    "preco_antes": null,
-   "preco_em": "2026-11-15",
-   "vendas": 6865,
+   "preco_em": "2026-11-16",
+   "vendas": 7427,
    "video": null
   },
   {
