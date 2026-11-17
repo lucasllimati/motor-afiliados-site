@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-17T11:07:52+00:00",
+ "atualizado_em": "2026-11-17T23:07:22+00:00",
  "itens": [
   {
    "categoria": "Eletrônicos",
@@ -48,8 +48,8 @@
    "plataforma": "shopee",
    "preco": 29.25,
    "preco_antes": null,
-   "preco_em": "2026-11-16",
-   "vendas": 2419,
+   "preco_em": "2026-11-17",
+   "vendas": 2502,
    "video": null
   },
   {
@@ -310,7 +310,7 @@
   {
    "categoria": "Eletrônicos",
    "data": "2026-11-13",
-   "desconto": 76,
+   "desconto": 73,
    "imagem": "https://cf.shopee.com.br/file/sg-11134201-8258z-mr0fi8bhfthid6",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/4B1SZPx0Rk",
@@ -318,10 +318,10 @@
    "nota": 4.8,
    "numero": 59,
    "plataforma": "shopee",
-   "preco": 16.99,
+   "preco": 18.99,
    "preco_antes": null,
    "preco_em": "2026-11-17",
-   "vendas": 7427,
+   "vendas": 8349,
    "video": null
   },
   {
