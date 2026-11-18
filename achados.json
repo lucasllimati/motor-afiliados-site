@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-18T11:08:06+00:00",
+ "atualizado_em": "2026-11-18T23:07:18+00:00",
  "itens": [
   {
    "categoria": "Eletrônicos",
@@ -48,8 +48,8 @@
    "plataforma": "shopee",
    "preco": 29.25,
    "preco_antes": null,
-   "preco_em": "2026-11-17",
-   "vendas": 2502,
+   "preco_em": "2026-11-18",
+   "vendas": 2595,
    "video": null
   },
   {
@@ -244,7 +244,7 @@
    "data": "2026-11-13",
    "desconto": 42,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820lw-mu0qm9tf1ate77",
-   "indisponivel": true,
+   "indisponivel": false,
    "link": "https://s.shopee.com.br/40i2N6stgA",
    "nome": "Cascata de Natal Pisca Pisca 200 Leds 5 Metros 8 Funções e Fixo 110V/220V Colorido Decoração",
    "nota": 4.9,
@@ -252,8 +252,8 @@
    "plataforma": "shopee",
    "preco": 27.99,
    "preco_antes": null,
-   "preco_em": "2026-11-12",
-   "vendas": 3439,
+   "preco_em": "2026-11-18",
+   "vendas": 8634,
    "video": null
   },
   {
@@ -315,13 +315,13 @@
    "indisponivel": false,
    "link": "https://s.shopee.com.br/4B1SZPx0Rk",
    "nome": "Fone De Ouvido Sem Fio M10 TWS Bluetooth 5.3 display Led Touch",
-   "nota": 4.8,
+   "nota": 4.7,
    "numero": 59,
    "plataforma": "shopee",
    "preco": 18.99,
    "preco_antes": null,
-   "preco_em": "2026-11-17",
-   "vendas": 8349,
+   "preco_em": "2026-11-18",
+   "vendas": 9227,
    "video": null
   },
   {
