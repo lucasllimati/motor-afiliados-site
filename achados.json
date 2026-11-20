@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-19T23:07:17+00:00",
+ "atualizado_em": "2026-11-20T11:07:53+00:00",
  "itens": [
   {
    "categoria": "Eletrônicos",
@@ -14,8 +14,8 @@
    "plataforma": "shopee",
    "preco": 13.49,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3552,
+   "preco_em": "2026-11-20",
+   "vendas": 3881,
    "video": null
   },
   {
@@ -31,8 +31,8 @@
    "plataforma": "shopee",
    "preco": 49.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 1616,
+   "preco_em": "2026-11-20",
+   "vendas": 1635,
    "video": null
   },
   {
@@ -65,8 +65,8 @@
    "plataforma": "shopee",
    "preco": 34.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 1897,
+   "preco_em": "2026-11-20",
+   "vendas": 1938,
    "video": null
   },
   {
@@ -99,14 +99,14 @@
    "plataforma": "shopee",
    "preco": 49.49,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3001,
+   "preco_em": "2026-11-20",
+   "vendas": 3201,
    "video": null
   },
   {
    "categoria": "Casa e cozinha",
    "data": "2026-11-16",
-   "desconto": 48,
+   "desconto": 52,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820l9-mn1uzb42hx4yd8",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/W8EBtriag",
@@ -114,10 +114,10 @@
    "nota": 4.8,
    "numero": 71,
    "plataforma": "shopee",
-   "preco": 16.99,
-   "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 2132,
+   "preco": 14.27,
+   "preco_antes": 16.99,
+   "preco_em": "2026-11-20",
+   "vendas": 2114,
    "video": null
   },
   {
@@ -133,8 +133,8 @@
    "plataforma": "shopee",
    "preco": 22.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3079,
+   "preco_em": "2026-11-20",
+   "vendas": 3180,
    "video": null
   },
   {
@@ -148,10 +148,10 @@
    "nota": 4.9,
    "numero": 69,
    "plataforma": "shopee",
-   "preco": 32.99,
-   "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4186,
+   "preco": 31.99,
+   "preco_antes": 33.99,
+   "preco_em": "2026-11-20",
+   "vendas": 4556,
    "video": null
   },
   {
@@ -167,8 +167,8 @@
    "plataforma": "shopee",
    "preco": 24.9,
    "preco_antes": 27.9,
-   "preco_em": "2026-11-19",
-   "vendas": 2317,
+   "preco_em": "2026-11-20",
+   "vendas": 2298,
    "video": null
   },
   {
@@ -184,8 +184,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 2353,
+   "preco_em": "2026-11-20",
+   "vendas": 2337,
    "video": null
   },
   {
@@ -201,8 +201,8 @@
    "plataforma": "shopee",
    "preco": 29.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 2848,
+   "preco_em": "2026-11-20",
+   "vendas": 2943,
    "video": null
   },
   {
@@ -218,8 +218,8 @@
    "plataforma": "shopee",
    "preco": 44.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 781,
+   "preco_em": "2026-11-20",
+   "vendas": 700,
    "video": null
   },
   {
@@ -269,8 +269,8 @@
    "plataforma": "shopee",
    "preco": 42.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3691,
+   "preco_em": "2026-11-20",
+   "vendas": 3857,
    "video": null
   },
   {
@@ -286,8 +286,8 @@
    "plataforma": "shopee",
    "preco": 16.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4165,
+   "preco_em": "2026-11-20",
+   "vendas": 4314,
    "video": null
   },
   {
@@ -303,8 +303,8 @@
    "plataforma": "shopee",
    "preco": 39.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4412,
+   "preco_em": "2026-11-20",
+   "vendas": 4436,
    "video": null
   },
   {
@@ -337,8 +337,8 @@
    "plataforma": "shopee",
    "preco": 46.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4170,
+   "preco_em": "2026-11-20",
+   "vendas": 4151,
    "video": null
   },
   {
@@ -354,8 +354,8 @@
    "plataforma": "shopee",
    "preco": 25.97,
    "preco_antes": 32.97,
-   "preco_em": "2026-11-19",
-   "vendas": 6050,
+   "preco_em": "2026-11-20",
+   "vendas": 6138,
    "video": null
   },
   {
@@ -369,10 +369,10 @@
    "nota": 4.7,
    "numero": 56,
    "plataforma": "shopee",
-   "preco": 22.99,
+   "preco": 23.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 7870,
+   "preco_em": "2026-11-20",
+   "vendas": 7983,
    "video": null
   },
   {
@@ -386,10 +386,10 @@
    "nota": 4.8,
    "numero": 55,
    "plataforma": "shopee",
-   "preco": 56.9,
+   "preco": 57.0,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 11288,
+   "preco_em": "2026-11-20",
+   "vendas": 11313,
    "video": null
   },
   {
@@ -405,8 +405,8 @@
    "plataforma": "shopee",
    "preco": 31.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 11290,
+   "preco_em": "2026-11-20",
+   "vendas": 11318,
    "video": null
   },
   {
@@ -422,8 +422,8 @@
    "plataforma": "shopee",
    "preco": 13.89,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4483,
+   "preco_em": "2026-11-20",
+   "vendas": 4624,
    "video": null
   },
   {
@@ -439,8 +439,8 @@
    "plataforma": "shopee",
    "preco": 33.89,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3146,
+   "preco_em": "2026-11-20",
+   "vendas": 3120,
    "video": null
   },
   {
@@ -456,8 +456,8 @@
    "plataforma": "shopee",
    "preco": 17.76,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 3814,
+   "preco_em": "2026-11-20",
+   "vendas": 3855,
    "video": null
   },
   {
@@ -473,8 +473,8 @@
    "plataforma": "shopee",
    "preco": 24.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6531,
+   "preco_em": "2026-11-20",
+   "vendas": 6873,
    "video": null
   },
   {
@@ -490,8 +490,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 2484,
+   "preco_em": "2026-11-20",
+   "vendas": 2356,
    "video": null
   },
   {
@@ -507,8 +507,8 @@
    "plataforma": "shopee",
    "preco": 10.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6085,
+   "preco_em": "2026-11-20",
+   "vendas": 6558,
    "video": null
   },
   {
@@ -524,8 +524,8 @@
    "plataforma": "shopee",
    "preco": 39.88,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 8271,
+   "preco_em": "2026-11-20",
+   "vendas": 8685,
    "video": null
   },
   {
@@ -541,8 +541,8 @@
    "plataforma": "shopee",
    "preco": 43.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 5852,
+   "preco_em": "2026-11-20",
+   "vendas": 5949,
    "video": null
   },
   {
@@ -558,8 +558,8 @@
    "plataforma": "shopee",
    "preco": 19.78,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10638,
+   "preco_em": "2026-11-20",
+   "vendas": 11014,
    "video": null
   },
   {
@@ -575,8 +575,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4382,
+   "preco_em": "2026-11-20",
+   "vendas": 4440,
    "video": null
   },
   {
@@ -592,8 +592,8 @@
    "plataforma": "shopee",
    "preco": 14.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6481,
+   "preco_em": "2026-11-20",
+   "vendas": 6440,
    "video": null
   },
   {
@@ -609,14 +609,14 @@
    "plataforma": "shopee",
    "preco": 18.9,
    "preco_antes": 19.9,
-   "preco_em": "2026-11-19",
-   "vendas": 5052,
+   "preco_em": "2026-11-20",
+   "vendas": 5080,
    "video": null
   },
   {
    "categoria": "Beleza",
    "data": "2026-11-12",
-   "desconto": 39,
+   "desconto": 38,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820la-moy94uiglu6862",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/1gK1NYbpk6",
@@ -624,10 +624,10 @@
    "nota": 4.9,
    "numero": 40,
    "plataforma": "shopee",
-   "preco": 35.99,
+   "preco": 36.5,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10111,
+   "preco_em": "2026-11-20",
+   "vendas": 10372,
    "video": null
   },
   {
@@ -660,8 +660,8 @@
    "plataforma": "shopee",
    "preco": 58.97,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 14254,
+   "preco_em": "2026-11-20",
+   "vendas": 14258,
    "video": null
   },
   {
@@ -728,8 +728,8 @@
    "plataforma": "shopee",
    "preco": 19.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 15635,
+   "preco_em": "2026-11-20",
+   "vendas": 15441,
    "video": null
   },
   {
@@ -762,8 +762,8 @@
    "plataforma": "shopee",
    "preco": 15.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 17012,
+   "preco_em": "2026-11-20",
+   "vendas": 16848,
    "video": null
   },
   {
@@ -796,8 +796,8 @@
    "plataforma": "shopee",
    "preco": 16.49,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 55618,
+   "preco_em": "2026-11-20",
+   "vendas": 55687,
    "video": null
   },
   {
@@ -915,8 +915,8 @@
    "plataforma": "shopee",
    "preco": 24.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 5735,
+   "preco_em": "2026-11-20",
+   "vendas": 5883,
    "video": null
   },
   {
@@ -932,8 +932,8 @@
    "plataforma": "shopee",
    "preco": 28.8,
    "preco_antes": 30.8,
-   "preco_em": "2026-11-19",
-   "vendas": 5014,
+   "preco_em": "2026-11-20",
+   "vendas": 4966,
    "video": null
   },
   {
@@ -949,8 +949,8 @@
    "plataforma": "shopee",
    "preco": 34.98,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6297,
+   "preco_em": "2026-11-20",
+   "vendas": 6394,
    "video": null
   },
   {
@@ -966,8 +966,8 @@
    "plataforma": "shopee",
    "preco": 52.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4801,
+   "preco_em": "2026-11-20",
+   "vendas": 4863,
    "video": null
   },
   {
@@ -983,14 +983,14 @@
    "plataforma": "shopee",
    "preco": 49.0,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 4946,
+   "preco_em": "2026-11-20",
+   "vendas": 4979,
    "video": null
   },
   {
    "categoria": "Outros",
    "data": "2026-11-08",
-   "desconto": 34,
+   "desconto": 45,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-7r98o-lsmu3092h72l8b",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/2Vt5JXqIC8",
@@ -998,10 +998,10 @@
    "nota": 4.9,
    "numero": 18,
    "plataforma": "shopee",
-   "preco": 22.9,
+   "preco": 19.26,
    "preco_antes": 23.95,
-   "preco_em": "2026-11-19",
-   "vendas": 8711,
+   "preco_em": "2026-11-20",
+   "vendas": 8779,
    "video": null
   },
   {
@@ -1017,8 +1017,8 @@
    "plataforma": "shopee",
    "preco": 42.89,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6251,
+   "preco_em": "2026-11-20",
+   "vendas": 6383,
    "video": null
   },
   {
@@ -1034,8 +1034,8 @@
    "plataforma": "shopee",
    "preco": 42.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 8617,
+   "preco_em": "2026-11-20",
+   "vendas": 8828,
    "video": null
   },
   {
@@ -1051,8 +1051,8 @@
    "plataforma": "shopee",
    "preco": 29.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 6611,
+   "preco_em": "2026-11-20",
+   "vendas": 6525,
    "video": null
   },
   {
@@ -1068,8 +1068,8 @@
    "plataforma": "shopee",
    "preco": 19.9,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10464,
+   "preco_em": "2026-11-20",
+   "vendas": 10455,
    "video": null
   },
   {
@@ -1085,14 +1085,14 @@
    "plataforma": "shopee",
    "preco": 16.0,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 18047,
+   "preco_em": "2026-11-20",
+   "vendas": 18609,
    "video": null
   },
   {
    "categoria": "Casa e cozinha",
    "data": "2026-11-07",
-   "desconto": 48,
+   "desconto": 49,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820md-mq55654q4mbm4b",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/2BGEuvvtOM",
@@ -1100,10 +1100,10 @@
    "nota": 4.8,
    "numero": 12,
    "plataforma": "shopee",
-   "preco": 36.08,
+   "preco": 36.0,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 14806,
+   "preco_em": "2026-11-20",
+   "vendas": 14709,
    "video": null
   },
   {
@@ -1119,8 +1119,8 @@
    "plataforma": "shopee",
    "preco": 32.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 8233,
+   "preco_em": "2026-11-20",
+   "vendas": 8142,
    "video": null
   },
   {
@@ -1134,10 +1134,10 @@
    "nota": 4.8,
    "numero": 10,
    "plataforma": "shopee",
-   "preco": 20.47,
+   "preco": 21.47,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 5250,
+   "preco_em": "2026-11-20",
+   "vendas": 5252,
    "video": null
   },
   {
@@ -1153,8 +1153,8 @@
    "plataforma": "shopee",
    "preco": 34.36,
    "preco_antes": 39.56,
-   "preco_em": "2026-11-19",
-   "vendas": 12639,
+   "preco_em": "2026-11-20",
+   "vendas": 12736,
    "video": null
   },
   {
@@ -1170,8 +1170,8 @@
    "plataforma": "shopee",
    "preco": 48.39,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10300,
+   "preco_em": "2026-11-20",
+   "vendas": 10420,
    "video": null
   },
   {
@@ -1187,8 +1187,8 @@
    "plataforma": "shopee",
    "preco": 19.98,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 11332,
+   "preco_em": "2026-11-20",
+   "vendas": 11565,
    "video": null
   },
   {
@@ -1204,8 +1204,8 @@
    "plataforma": "shopee",
    "preco": 36.97,
    "preco_antes": 39.96,
-   "preco_em": "2026-11-19",
-   "vendas": 7003,
+   "preco_em": "2026-11-20",
+   "vendas": 6767,
    "video": null
   },
   {
@@ -1221,8 +1221,8 @@
    "plataforma": "shopee",
    "preco": 28.85,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10999,
+   "preco_em": "2026-11-20",
+   "vendas": 11038,
    "video": "https://www.instagram.com/p/DfSC84CxYz5/"
   },
   {
@@ -1238,8 +1238,8 @@
    "plataforma": "shopee",
    "preco": 34.65,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 11287,
+   "preco_em": "2026-11-20",
+   "vendas": 11174,
    "video": "https://www.instagram.com/p/DfRuWaBRf2L/"
   },
   {
@@ -1255,8 +1255,8 @@
    "plataforma": "shopee",
    "preco": 28.99,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 16359,
+   "preco_em": "2026-11-20",
+   "vendas": 16669,
    "video": "https://www.instagram.com/p/DfQeX3Fxy5B/"
   },
   {
@@ -1272,14 +1272,14 @@
    "plataforma": "shopee",
    "preco": 18.69,
    "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 13907,
+   "preco_em": "2026-11-20",
+   "vendas": 13878,
    "video": "https://www.instagram.com/p/DfQYb6eSUv3/"
   },
   {
    "categoria": "Outros",
    "data": "2026-11-12",
-   "desconto": 34,
+   "desconto": 40,
    "imagem": "https://cf.shopee.com.br/file/br-11134207-820mh-mswpwjyj75s554",
    "indisponivel": false,
    "link": "https://s.shopee.com.br/3LSCJ50Fcf",
@@ -1287,10 +1287,10 @@
    "nota": 4.9,
    "numero": 1,
    "plataforma": "shopee",
-   "preco": 16.9,
-   "preco_antes": null,
-   "preco_em": "2026-11-19",
-   "vendas": 10463,
+   "preco": 15.49,
+   "preco_antes": 16.9,
+   "preco_em": "2026-11-20",
+   "vendas": 10403,
    "video": "https://www.instagram.com/p/DfOIUQBu0iR/"
   }
  ]
